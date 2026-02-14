@@ -1,0 +1,125 @@
+{
+  "artifact_dir": "docs/qa/simulator/generated/stationary_only_v1/stationary_hist_v1",
+  "hourly_histogram": {
+    "0": 720,
+    "1": 720,
+    "10": 722,
+    "11": 720,
+    "12": 720,
+    "13": 720,
+    "14": 720,
+    "15": 720,
+    "16": 720,
+    "17": 720,
+    "18": 720,
+    "19": 720,
+    "2": 720,
+    "20": 720,
+    "21": 720,
+    "22": 720,
+    "23": 720,
+    "3": 720,
+    "4": 720,
+    "5": 720,
+    "6": 720,
+    "7": 720,
+    "8": 720,
+    "9": 720
+  },
+  "invalid_row_samples": [],
+  "manifest": {
+    "artifact_schema": "telemetry_csv_v1",
+    "csv_filename": "telemetry_rows.csv",
+    "csv_sha256": "5d5bf978f6b572c19e907ed0d7ff9b6ab50d657b67bb6dd4c2870dc0e5e7d091",
+    "end_at_utc": "2026-02-12T10:00:00Z",
+    "per_device_counts": {
+      "E2E2024STATA1": 8641,
+      "E2E2024STATC1": 8641
+    },
+    "per_device_seq_ranges": {
+      "E2E2024STATA1": {
+        "max": 10402,
+        "min": 1762
+      },
+      "E2E2024STATC1": {
+        "max": 10402,
+        "min": 1762
+      }
+    },
+    "row_count": 17282,
+    "run_id": "stationary_hist_v1",
+    "scenario_hash_sha256": "877490bb05e116d0a1f0a68021cdeb5320d10a7a210fe2426bef2c4e8f5e59c3",
+    "scenario_id": "stationary_only_v1",
+    "scenario_path": "docs/qa/simulator/scenarios/stationary_only_v1.yaml",
+    "seed": 20260212,
+    "start_at_utc": "2026-01-13T10:00:00Z",
+    "starting_seq_by_device": {
+      "E2E2024STATA1": 1761,
+      "E2E2024STATC1": 1761
+    },
+    "terminal_seq_by_device": {
+      "E2E2024STATA1": 10402,
+      "E2E2024STATC1": 10402
+    },
+    "timezone": "UTC"
+  },
+  "per_device_stats": {
+    "E2E2024STATA1": {
+      "model_level_pct_max": 100.0,
+      "model_level_pct_mean": 99.55643455445045,
+      "model_level_pct_min": 94.918519,
+      "model_volume_liters_max": 1000.0,
+      "model_volume_liters_mean": 995.5643455750411,
+      "model_volume_liters_min": 949.185185,
+      "rows": 8641,
+      "seq_duplicate_count": 0,
+      "seq_gap_count": 0,
+      "seq_last": 10402,
+      "seq_non_monotonic_count": 0
+    },
+    "E2E2024STATC1": {
+      "model_level_pct_max": 100.0,
+      "model_level_pct_mean": 95.32800547725935,
+      "model_level_pct_min": 40.854717,
+      "model_volume_liters_max": 1000.0,
+      "model_volume_liters_mean": 953.2800546849952,
+      "model_volume_liters_min": 408.547168,
+      "rows": 8641,
+      "seq_duplicate_count": 0,
+      "seq_gap_count": 0,
+      "seq_last": 10402,
+      "seq_non_monotonic_count": 0
+    }
+  },
+  "qc": {
+    "checks": {
+      "manifest_csv_hash_match": true,
+      "modeled_levels_in_range": true,
+      "row_schema_valid": true,
+      "seq_has_no_duplicates": true,
+      "seq_has_no_gaps": true,
+      "seq_is_monotonic_per_device": true
+    },
+    "invalid_row_count": 0,
+    "level_out_of_range_count": 0,
+    "passed": true,
+    "seq_duplicate_count": 0,
+    "seq_gap_count": 0,
+    "seq_non_monotonic_count": 0
+  },
+  "row_count": 17282,
+  "time_range": {
+    "duration_seconds": 2592000,
+    "max_received_at_utc": "2026-02-12T10:00:00Z",
+    "min_received_at_utc": "2026-01-13T10:00:00Z"
+  },
+  "weekday_histogram_mon0": {
+    "0": 2304,
+    "1": 2640,
+    "2": 2880,
+    "3": 2546,
+    "4": 2304,
+    "5": 2304,
+    "6": 2304
+  }
+}

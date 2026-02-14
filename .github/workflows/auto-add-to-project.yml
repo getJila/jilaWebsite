@@ -1,0 +1,13 @@
+name: Auto-add issues/PRs to project
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  add-to-project:
+    uses: getJila/jilaCiWorkflows/.github/workflows/auto-add-to-project.yml@v1
+    secrets:
+      PROJECT_WORKFLOW_PAT: ${{ secrets.PROJECT_WORKFLOW_PAT }}

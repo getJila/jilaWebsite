@@ -1,0 +1,1709 @@
+{
+  "metadata": {
+    "description": "Angola Test Dataset for Jila Web Portal",
+    "generated": "2025-01-05",
+    "totalSites": 101,
+    "totalReservoirs": 152,
+    "totalDevices": 152,
+    "totalAlerts": 45
+  },
+  "organization": {
+    "id": "org-unitel-ao",
+    "name": "Unitel Angola",
+    "industry": "Telecommunications Infrastructure",
+    "country": "Angola",
+    "timezone": "Africa/Luanda",
+    "units": "metric",
+    "dateFormat": "DD/MM/YYYY",
+    "initials": "UA"
+  },
+  "currentUser": {
+    "id": "user-admin-001",
+    "name": "Administrator",
+    "email": "admin@unitel.ao",
+    "role": "admin",
+    "roleLabel": "Administrador",
+    "initials": "AD"
+  },
+  "sites": [
+    {
+      "id": "site-001",
+      "name": "Zango II",
+      "type": "distribution",
+      "location": {
+        "address": "Estrada do Zango-Calumbo, Zango II",
+        "latitude": -9.0302216,
+        "longitude": 13.4076118,
+        "zone": "Zona Sul",
+        "region": "Luanda",
+        "city": "Viana"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "5 min ago",
+      "createdAt": "2024-12-10T08:00:00Z",
+      "updatedAt": "2025-01-05T10:30:00Z"
+    },
+    {
+      "id": "site-002",
+      "name": "Wako - Kungo",
+      "type": "distribution",
+      "location": {
+        "address": "Rua 11 de Novembro",
+        "latitude": -11.3632509,
+        "longitude": 15.1197624,
+        "zone": "Zona Interior",
+        "region": "Kwanza Sul",
+        "city": "Wako Kungo"
+      },
+      "status": "active",
+      "riskLevel": "warning",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "2 hours ago",
+      "createdAt": "2024-12-12T09:00:00Z",
+      "updatedAt": "2025-01-05T08:15:00Z"
+    },
+    {
+      "id": "site-003",
+      "name": "Vila Flor",
+      "type": "distribution",
+      "location": {
+        "address": "Rua da Filda S/N – Município do Cazenga",
+        "latitude": -8.8525067,
+        "longitude": 13.293972,
+        "zone": "Zona Norte",
+        "region": "Luanda",
+        "city": "Cazenga"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "10 min ago",
+      "createdAt": "2024-12-08T10:00:00Z",
+      "updatedAt": "2025-01-05T10:20:00Z"
+    },
+    {
+      "id": "site-004",
+      "name": "Vila de Cacuaco",
+      "type": "distribution",
+      "location": {
+        "address": "Avenida Principal do Cacuaco nº 83",
+        "latitude": -8.7754928,
+        "longitude": 13.3698463,
+        "zone": "Zona Norte",
+        "region": "Luanda",
+        "city": "Cacuaco"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "15 min ago",
+      "createdAt": "2024-12-09T11:00:00Z",
+      "updatedAt": "2025-01-05T10:15:00Z"
+    },
+    {
+      "id": "site-005",
+      "name": "Viana Sede",
+      "type": "distribution",
+      "location": {
+        "address": "Rua da Igreja, Nº 5, Município de Viana",
+        "latitude": -8.9071192,
+        "longitude": 13.3743095,
+        "zone": "Zona Sul",
+        "region": "Luanda",
+        "city": "Viana"
+      },
+      "status": "active",
+      "riskLevel": "critical",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "30 min ago",
+      "createdAt": "2024-12-07T08:30:00Z",
+      "updatedAt": "2025-01-05T10:00:00Z"
+    },
+    {
+      "id": "site-006",
+      "name": "Vavaly",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Dr. António Agostinho Neto, Ed. Vavaly, S/N",
+        "latitude": -14.9152607,
+        "longitude": 13.4985924,
+        "zone": "Zona Sul",
+        "region": "Huíla",
+        "city": "Lubango"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "1 hour ago",
+      "createdAt": "2024-12-15T09:00:00Z",
+      "updatedAt": "2025-01-05T09:30:00Z"
+    },
+    {
+      "id": "site-007",
+      "name": "Ulengo Shopping",
+      "type": "distribution",
+      "location": {
+        "address": "Rua do Estádio 11 de Novembro, no Ulengo Shopping S/N, Bairro do Sapú",
+        "latitude": -8.9478188,
+        "longitude": 13.2919121,
+        "zone": "Zona Centro",
+        "region": "Luanda",
+        "city": "Luanda"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "20 min ago",
+      "createdAt": "2024-12-11T10:00:00Z",
+      "updatedAt": "2025-01-05T10:10:00Z"
+    },
+    {
+      "id": "site-008",
+      "name": "Uíge",
+      "type": "distribution",
+      "location": {
+        "address": "EN120, Uíge",
+        "latitude": -7.617081,
+        "longitude": 15.0579643,
+        "zone": "Zona Norte",
+        "region": "Uíge",
+        "city": "Uíge"
+      },
+      "status": "active",
+      "riskLevel": "stale",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "1 day ago",
+      "createdAt": "2024-12-14T08:00:00Z",
+      "updatedAt": "2025-01-04T10:00:00Z"
+    },
+    {
+      "id": "site-009",
+      "name": "Tala Hady",
+      "type": "distribution",
+      "location": {
+        "address": "Rua H, Casa nº 68-A, Bairro Tala-Hady",
+        "latitude": -8.8369017,
+        "longitude": 13.282299,
+        "zone": "Zona Centro",
+        "region": "Luanda",
+        "city": "Luanda"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "45 min ago",
+      "createdAt": "2024-12-13T09:30:00Z",
+      "updatedAt": "2025-01-05T09:45:00Z"
+    },
+    {
+      "id": "site-010",
+      "name": "Sumbe",
+      "type": "distribution",
+      "location": {
+        "address": "Rua de Moçambique, Zona 1, Município do Sumbe",
+        "latitude": -11.2033247,
+        "longitude": 13.8446617,
+        "zone": "Zona Litoral",
+        "region": "Kwanza Sul",
+        "city": "Sumbe"
+      },
+      "status": "active",
+      "riskLevel": "warning",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "3 hours ago",
+      "createdAt": "2024-12-16T10:00:00Z",
+      "updatedAt": "2025-01-05T07:30:00Z"
+    },
+    {
+      "id": "site-011",
+      "name": "Soyo",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Kikala Kiaku",
+        "latitude": -6.1258764,
+        "longitude": 12.3501778,
+        "zone": "Zona Norte",
+        "region": "Zaire",
+        "city": "Soyo"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "2 hours ago",
+      "createdAt": "2024-12-17T08:00:00Z",
+      "updatedAt": "2025-01-05T08:30:00Z"
+    },
+    {
+      "id": "site-012",
+      "name": "Solar de Alvalade",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Oliveira Martins – Alvalade",
+        "latitude": -8.8314737,
+        "longitude": 13.2369804,
+        "zone": "Zona Centro",
+        "region": "Luanda",
+        "city": "Luanda"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "25 min ago",
+      "createdAt": "2024-12-10T11:00:00Z",
+      "updatedAt": "2025-01-05T10:05:00Z"
+    },
+    {
+      "id": "site-013",
+      "name": "SIAC Talatona",
+      "type": "distribution",
+      "location": {
+        "address": "Avenida A2, Unidade Empresarial Talatona",
+        "latitude": -8.916277,
+        "longitude": 13.1985283,
+        "zone": "Zona Sul",
+        "region": "Luanda",
+        "city": "Talatona"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "8 min ago",
+      "createdAt": "2024-12-09T09:00:00Z",
+      "updatedAt": "2025-01-05T10:22:00Z"
+    },
+    {
+      "id": "site-014",
+      "name": "Sede Unitel",
+      "type": "distribution",
+      "location": {
+        "address": "Via C3, Sector 22, Talatona, Edificio 1",
+        "latitude": -8.9308612,
+        "longitude": 13.1882286,
+        "zone": "Zona Sul",
+        "region": "Luanda",
+        "city": "Talatona"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "3 min ago",
+      "createdAt": "2024-12-06T08:00:00Z",
+      "updatedAt": "2025-01-05T10:27:00Z"
+    },
+    {
+      "id": "site-015",
+      "name": "Santa Clara",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Principal Santa Clara",
+        "latitude": -17.3870095,
+        "longitude": 15.8891487,
+        "zone": "Zona Sul",
+        "region": "Cunene",
+        "city": "Santa Clara"
+      },
+      "status": "active",
+      "riskLevel": "stale",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "2 days ago",
+      "createdAt": "2024-12-20T10:00:00Z",
+      "updatedAt": "2025-01-03T14:00:00Z"
+    },
+    {
+      "id": "site-016",
+      "name": "Samba",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Principal da Samba",
+        "latitude": -8.8328307,
+        "longitude": 13.218441,
+        "zone": "Zona Centro",
+        "region": "Luanda",
+        "city": "Luanda"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "35 min ago",
+      "createdAt": "2024-12-11T09:00:00Z",
+      "updatedAt": "2025-01-05T09:55:00Z"
+    },
+    {
+      "id": "site-017",
+      "name": "Sagrada Esperança (Mbanza Congo)",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Comandante Dangeroux Nº 6",
+        "latitude": -6.2647927,
+        "longitude": 14.246006,
+        "zone": "Zona Norte",
+        "region": "Zaire",
+        "city": "Mbanza Congo"
+      },
+      "status": "active",
+      "riskLevel": "warning",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "4 hours ago",
+      "createdAt": "2024-12-18T08:30:00Z",
+      "updatedAt": "2025-01-05T06:30:00Z"
+    },
+    {
+      "id": "site-018",
+      "name": "Rocha Pinto",
+      "type": "distribution",
+      "location": {
+        "address": "Sector Morro Bento 1, Casa nº 25",
+        "latitude": -8.8843933,
+        "longitude": 13.2071114,
+        "zone": "Zona Centro",
+        "region": "Luanda",
+        "city": "Luanda"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "12 min ago",
+      "createdAt": "2024-12-08T10:30:00Z",
+      "updatedAt": "2025-01-05T10:18:00Z"
+    },
+    {
+      "id": "site-019",
+      "name": "Rangel",
+      "type": "distribution",
+      "location": {
+        "address": "Rua da Brigada nº 6 RA-441 Município do Rangel",
+        "latitude": -8.8246886,
+        "longitude": 13.2606697,
+        "zone": "Zona Centro",
+        "region": "Luanda",
+        "city": "Rangel"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "40 min ago",
+      "createdAt": "2024-12-12T11:00:00Z",
+      "updatedAt": "2025-01-05T09:50:00Z"
+    },
+    {
+      "id": "site-020",
+      "name": "Rainha Ginga",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Rainha Ginga, nº 222/224 A",
+        "latitude": -8.8107787,
+        "longitude": 13.2386971,
+        "zone": "Zona Centro",
+        "region": "Luanda",
+        "city": "Luanda"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "18 min ago",
+      "createdAt": "2024-12-07T09:00:00Z",
+      "updatedAt": "2025-01-05T10:12:00Z"
+    },
+    {
+      "id": "site-021",
+      "name": "Porto Amboim",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Estrada Nacional do Porto Amboim",
+        "latitude": -10.7287545,
+        "longitude": 13.7615776,
+        "zone": "Zona Litoral",
+        "region": "Kwanza Sul",
+        "city": "Porto Amboim"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "1 hour ago",
+      "createdAt": "2024-12-19T10:00:00Z",
+      "updatedAt": "2025-01-05T09:30:00Z"
+    },
+    {
+      "id": "site-022",
+      "name": "Petrangol",
+      "type": "distribution",
+      "location": {
+        "address": "Estrada direita de Cacuaco Km 9, SN",
+        "latitude": -8.7843146,
+        "longitude": 13.3080482,
+        "zone": "Zona Norte",
+        "region": "Luanda",
+        "city": "Cacuaco"
+      },
+      "status": "active",
+      "riskLevel": "warning",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "2 hours ago",
+      "createdAt": "2024-12-10T08:30:00Z",
+      "updatedAt": "2025-01-05T08:30:00Z"
+    },
+    {
+      "id": "site-023",
+      "name": "Patriota",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Lar do Patriota, Zona Financeira do Patriota S/N",
+        "latitude": -8.9522277,
+        "longitude": 13.1944084,
+        "zone": "Zona Sul",
+        "region": "Luanda",
+        "city": "Talatona"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "22 min ago",
+      "createdAt": "2024-12-09T10:00:00Z",
+      "updatedAt": "2025-01-05T10:08:00Z"
+    },
+    {
+      "id": "site-024",
+      "name": "Panguila",
+      "type": "distribution",
+      "location": {
+        "address": "Mercado Municipal do Panguila – Município do Dande",
+        "latitude": -8.7096621,
+        "longitude": 13.4388542,
+        "zone": "Zona Norte",
+        "region": "Bengo",
+        "city": "Dande"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "55 min ago",
+      "createdAt": "2024-12-14T09:00:00Z",
+      "updatedAt": "2025-01-05T09:35:00Z"
+    },
+    {
+      "id": "site-025",
+      "name": "Palanca",
+      "type": "distribution",
+      "location": {
+        "address": "Av. Pedro de Castro Van Dúnen Loy S/N",
+        "latitude": -8.8704856,
+        "longitude": 13.2816124,
+        "zone": "Zona Centro",
+        "region": "Luanda",
+        "city": "Luanda"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "28 min ago",
+      "createdAt": "2024-12-11T10:30:00Z",
+      "updatedAt": "2025-01-05T10:02:00Z"
+    },
+    {
+      "id": "site-026",
+      "name": "Ondjiva",
+      "type": "distribution",
+      "location": {
+        "address": "Rua da Juventude S/N, Bº Pioneiro Zeca",
+        "latitude": -17.0686002,
+        "longitude": 15.7281303,
+        "zone": "Zona Sul",
+        "region": "Cunene",
+        "city": "Ondjiva"
+      },
+      "status": "active",
+      "riskLevel": "critical",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "6 hours ago",
+      "createdAt": "2024-12-21T08:00:00Z",
+      "updatedAt": "2025-01-05T04:30:00Z"
+    },
+    {
+      "id": "site-027",
+      "name": "Negage",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Dr.º António Agostinho Neto S/N",
+        "latitude": -7.763382,
+        "longitude": 15.2643013,
+        "zone": "Zona Norte",
+        "region": "Uíge",
+        "city": "Negage"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "3 hours ago",
+      "createdAt": "2024-12-15T09:30:00Z",
+      "updatedAt": "2025-01-05T07:30:00Z"
+    },
+    {
+      "id": "site-028",
+      "name": "N'zagi",
+      "type": "distribution",
+      "location": {
+        "address": "Centro Urbano - Rua Principal nº 9 - Cambulo",
+        "latitude": -7.6943206,
+        "longitude": 21.3637733,
+        "zone": "Zona Leste",
+        "region": "Lunda Norte",
+        "city": "Cambulo"
+      },
+      "status": "active",
+      "riskLevel": "stale",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "3 days ago",
+      "createdAt": "2024-12-22T10:00:00Z",
+      "updatedAt": "2025-01-02T12:00:00Z"
+    },
+    {
+      "id": "site-029",
+      "name": "N'Dalatando",
+      "type": "distribution",
+      "location": {
+        "address": "Rua das Palmeiras, S/N – Município do Cazengo",
+        "latitude": -9.3034054,
+        "longitude": 14.9096489,
+        "zone": "Zona Interior",
+        "region": "Kwanza Norte",
+        "city": "N'Dalatando"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "1 hour ago",
+      "createdAt": "2024-12-13T08:00:00Z",
+      "updatedAt": "2025-01-05T09:30:00Z"
+    },
+    {
+      "id": "site-030",
+      "name": "Namibe",
+      "type": "distribution",
+      "location": {
+        "address": "Av. Eduardo Mondlane, 61",
+        "latitude": -15.194085,
+        "longitude": 12.1481323,
+        "zone": "Zona Litoral",
+        "region": "Namibe",
+        "city": "Namibe"
+      },
+      "status": "active",
+      "riskLevel": "warning",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "4 hours ago",
+      "createdAt": "2024-12-16T09:00:00Z",
+      "updatedAt": "2025-01-05T06:30:00Z"
+    },
+    {
+      "id": "site-031",
+      "name": "Millennium",
+      "type": "distribution",
+      "location": {
+        "address": "Centro Comercial Millenium 62/63",
+        "latitude": -14.9245496,
+        "longitude": 13.4924126,
+        "zone": "Zona Sul",
+        "region": "Huíla",
+        "city": "Lubango"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "30 min ago",
+      "createdAt": "2024-12-12T10:00:00Z",
+      "updatedAt": "2025-01-05T10:00:00Z"
+    },
+    {
+      "id": "site-032",
+      "name": "Maxi Zango",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Boa Esperança, nº 3",
+        "latitude": -9.0108942,
+        "longitude": 13.4093285,
+        "zone": "Zona Sul",
+        "region": "Luanda",
+        "city": "Viana"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "50 min ago",
+      "createdAt": "2024-12-10T11:30:00Z",
+      "updatedAt": "2025-01-05T09:40:00Z"
+    },
+    {
+      "id": "site-033",
+      "name": "Matala",
+      "type": "distribution",
+      "location": {
+        "address": "Rua da Polícia S/N",
+        "latitude": -14.7367025,
+        "longitude": 15.0304985,
+        "zone": "Zona Sul",
+        "region": "Huíla",
+        "city": "Matala"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "2 hours ago",
+      "createdAt": "2024-12-17T09:00:00Z",
+      "updatedAt": "2025-01-05T08:30:00Z"
+    },
+    {
+      "id": "site-034",
+      "name": "Marien N'Guabi",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Irmão Evaristo S/N",
+        "latitude": -5.5555062,
+        "longitude": 12.1932793,
+        "zone": "Zona Norte",
+        "region": "Cabinda",
+        "city": "Cabinda"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "1 hour ago",
+      "createdAt": "2024-12-14T10:00:00Z",
+      "updatedAt": "2025-01-05T09:30:00Z"
+    },
+    {
+      "id": "site-035",
+      "name": "Marginal",
+      "type": "distribution",
+      "location": {
+        "address": "Av. 4 de Fevereiro nº 52B",
+        "latitude": -8.807386,
+        "longitude": 13.2393837,
+        "zone": "Zona Centro",
+        "region": "Luanda",
+        "city": "Luanda"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "7 min ago",
+      "createdAt": "2024-12-06T09:00:00Z",
+      "updatedAt": "2025-01-05T10:23:00Z"
+    },
+    {
+      "id": "site-036",
+      "name": "Maianga",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Kwamme Nkrumahan",
+        "latitude": -8.8240101,
+        "longitude": 13.2316589,
+        "zone": "Zona Centro",
+        "region": "Luanda",
+        "city": "Maianga"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "16 min ago",
+      "createdAt": "2024-12-08T08:00:00Z",
+      "updatedAt": "2025-01-05T10:14:00Z"
+    },
+    {
+      "id": "site-037",
+      "name": "Luvo",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Principal S/N",
+        "latitude": -5.8493024,
+        "longitude": 14.084301,
+        "zone": "Zona Norte",
+        "region": "Zaire",
+        "city": "Noqui"
+      },
+      "status": "active",
+      "riskLevel": "warning",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "5 hours ago",
+      "createdAt": "2024-12-19T08:00:00Z",
+      "updatedAt": "2025-01-05T05:30:00Z"
+    },
+    {
+      "id": "site-038",
+      "name": "Luena",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Teixeira de Sousa S/N",
+        "latitude": -11.7867027,
+        "longitude": 19.9087715,
+        "zone": "Zona Leste",
+        "region": "Moxico",
+        "city": "Luena"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "3 hours ago",
+      "createdAt": "2024-12-15T10:00:00Z",
+      "updatedAt": "2025-01-05T07:30:00Z"
+    },
+    {
+      "id": "site-039",
+      "name": "Lucapa",
+      "type": "distribution",
+      "location": {
+        "address": "Avenida 11 de Novembro, S/N",
+        "latitude": -8.4183759,
+        "longitude": 20.7420158,
+        "zone": "Zona Leste",
+        "region": "Lunda Norte",
+        "city": "Lucapa"
+      },
+      "status": "active",
+      "riskLevel": "critical",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "8 hours ago",
+      "createdAt": "2024-12-20T09:00:00Z",
+      "updatedAt": "2025-01-05T02:30:00Z"
+    },
+    {
+      "id": "site-040",
+      "name": "Luau",
+      "type": "distribution",
+      "location": {
+        "address": "Estrada principal do Luau S/N",
+        "latitude": -10.7088519,
+        "longitude": 22.2251701,
+        "zone": "Zona Leste",
+        "region": "Moxico",
+        "city": "Luau"
+      },
+      "status": "active",
+      "riskLevel": "stale",
+      "reservoirCount": 1,
+      "deviceCount": 1,
+      "lastUpdated": "2 days ago",
+      "createdAt": "2024-12-21T10:00:00Z",
+      "updatedAt": "2025-01-03T16:00:00Z"
+    },
+    {
+      "id": "site-041",
+      "name": "Lobito",
+      "type": "distribution",
+      "location": {
+        "address": "Rua 15 de Agosto nº 73 – 73 A, Zona Comercial",
+        "latitude": -12.349728,
+        "longitude": 13.5447693,
+        "zone": "Zona Litoral",
+        "region": "Benguela",
+        "city": "Lobito"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "45 min ago",
+      "createdAt": "2024-12-11T08:30:00Z",
+      "updatedAt": "2025-01-05T09:45:00Z"
+    },
+    {
+      "id": "site-042",
+      "name": "Largo da Independência",
+      "type": "distribution",
+      "location": {
+        "address": "Av. Ho Chi Minh, Largo da Independência, Edificio Torres Dipanda",
+        "latitude": -8.8263849,
+        "longitude": 13.2441902,
+        "zone": "Zona Centro",
+        "region": "Luanda",
+        "city": "Luanda"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "11 min ago",
+      "createdAt": "2024-12-07T10:00:00Z",
+      "updatedAt": "2025-01-05T10:19:00Z"
+    },
+    {
+      "id": "site-043",
+      "name": "Kinaxixi",
+      "type": "distribution",
+      "location": {
+        "address": "Av. Comandante Valódia nº 10 B, R/C",
+        "latitude": -8.8165463,
+        "longitude": 13.2411003,
+        "zone": "Zona Centro",
+        "region": "Luanda",
+        "city": "Luanda"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "19 min ago",
+      "createdAt": "2024-12-09T08:30:00Z",
+      "updatedAt": "2025-01-05T10:11:00Z"
+    },
+    {
+      "id": "site-044",
+      "name": "Kero Viana",
+      "type": "distribution",
+      "location": {
+        "address": "Av Deolinda Rodrigues, Retail Park de Viana S/N, Zona do Porto Seco",
+        "latitude": -8.930522,
+        "longitude": 13.4107018,
+        "zone": "Zona Sul",
+        "region": "Luanda",
+        "city": "Viana"
+      },
+      "status": "active",
+      "riskLevel": "warning",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "3 hours ago",
+      "createdAt": "2024-12-12T09:30:00Z",
+      "updatedAt": "2025-01-05T07:30:00Z"
+    },
+    {
+      "id": "site-045",
+      "name": "Kero Rocha Pinto",
+      "type": "distribution",
+      "location": {
+        "address": "Avenida 21 de Janeiro, Hipermercado Kero Rocha Pinto - Município do Belas",
+        "latitude": -8.8928732,
+        "longitude": 13.1959534,
+        "zone": "Zona Sul",
+        "region": "Luanda",
+        "city": "Belas"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "32 min ago",
+      "createdAt": "2024-12-10T10:00:00Z",
+      "updatedAt": "2025-01-05T09:58:00Z"
+    },
+    {
+      "id": "site-046",
+      "name": "Kero Nova Vida",
+      "type": "distribution",
+      "location": {
+        "address": "Av. Pedro de Castro Van Dúnen Loy - Nova Vida",
+        "latitude": -8.8969436,
+        "longitude": 13.2254791,
+        "zone": "Zona Sul",
+        "region": "Luanda",
+        "city": "Belas"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "24 min ago",
+      "createdAt": "2024-12-08T09:00:00Z",
+      "updatedAt": "2025-01-05T10:06:00Z"
+    },
+    {
+      "id": "site-047",
+      "name": "Kero Lubango",
+      "type": "distribution",
+      "location": {
+        "address": "Xiami Shopping Lubango, Bairro da Lage, Município de Lubango",
+        "latitude": -14.9311843,
+        "longitude": 13.4822845,
+        "zone": "Zona Sul",
+        "region": "Huíla",
+        "city": "Lubango"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "1 hour ago",
+      "createdAt": "2024-12-13T10:00:00Z",
+      "updatedAt": "2025-01-05T09:30:00Z"
+    },
+    {
+      "id": "site-048",
+      "name": "Kero Lobito",
+      "type": "distribution",
+      "location": {
+        "address": "Retail Park do Lobito",
+        "latitude": -12.3909763,
+        "longitude": 13.5485458,
+        "zone": "Zona Litoral",
+        "region": "Benguela",
+        "city": "Lobito"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "38 min ago",
+      "createdAt": "2024-12-11T11:00:00Z",
+      "updatedAt": "2025-01-05T09:52:00Z"
+    },
+    {
+      "id": "site-049",
+      "name": "Kero Kilamba",
+      "type": "distribution",
+      "location": {
+        "address": "Hiper - Mercado Kero. Cidade do Kilamba",
+        "latitude": -8.9895312,
+        "longitude": 13.2886505,
+        "zone": "Zona Sul",
+        "region": "Luanda",
+        "city": "Kilamba"
+      },
+      "status": "active",
+      "riskLevel": "good",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "14 min ago",
+      "createdAt": "2024-12-09T09:30:00Z",
+      "updatedAt": "2025-01-05T10:16:00Z"
+    },
+    {
+      "id": "site-050",
+      "name": "Kero Huambo",
+      "type": "distribution",
+      "location": {
+        "address": "Rua Teixeira de Sousa, Bairro São João – Shopping Xyami",
+        "latitude": -12.759571,
+        "longitude": 15.7633209,
+        "zone": "Zona Interior",
+        "region": "Huambo",
+        "city": "Huambo"
+      },
+      "status": "active",
+      "riskLevel": "warning",
+      "reservoirCount": 2,
+      "deviceCount": 2,
+      "lastUpdated": "2 hours ago",
+      "createdAt": "2024-12-14T08:00:00Z",
+      "updatedAt": "2025-01-05T08:30:00Z"
+    }
+  ],
+  "reservoirs": [
+    {
+      "id": "rsv-001-a",
+      "name": "Zango II - Reservatório A",
+      "siteId": "site-001",
+      "siteName": "Zango II",
+      "capacity": 25000,
+      "capacityUnit": "liters",
+      "currentLevel": 78,
+      "currentVolume": 19500,
+      "status": "normal",
+      "estimatedRemaining": "~ 12 Dias",
+      "device": {
+        "id": "dev-001-a",
+        "name": "Sensor-LDA-001",
+        "status": "online",
+        "batteryLevel": 92,
+        "signalStrength": "strong",
+        "firmwareVersion": "v2.4.1",
+        "lastReading": "5m ago"
+      },
+      "location": {
+        "latitude": -9.0302216,
+        "longitude": 13.4076118,
+        "region": "Luanda"
+      },
+      "thresholds": {
+        "criticalLow": 10,
+        "warningLow": 25
+      },
+      "monitoringMode": "DEVICE",
+      "samplingFrequency": "realtime",
+      "createdAt": "2024-12-10T08:00:00Z",
+      "updatedAt": "2025-01-05T10:25:00Z"
+    },
+    {
+      "id": "rsv-001-b",
+      "name": "Zango II - Reservatório B",
+      "siteId": "site-001",
+      "siteName": "Zango II",
+      "capacity": 15000,
+      "capacityUnit": "liters",
+      "currentLevel": 65,
+      "currentVolume": 9750,
+      "status": "normal",
+      "estimatedRemaining": "~ 8 Dias",
+      "device": {
+        "id": "dev-001-b",
+        "name": "Sensor-LDA-002",
+        "status": "online",
+        "batteryLevel": 88,
+        "signalStrength": "strong",
+        "firmwareVersion": "v2.4.1",
+        "lastReading": "8m ago"
+      },
+      "location": {
+        "latitude": -9.0305,
+        "longitude": 13.4080,
+        "region": "Luanda"
+      },
+      "thresholds": {
+        "criticalLow": 10,
+        "warningLow": 25
+      },
+      "monitoringMode": "DEVICE",
+      "samplingFrequency": "realtime",
+      "createdAt": "2024-12-10T08:30:00Z",
+      "updatedAt": "2025-01-05T10:22:00Z"
+    },
+    {
+      "id": "rsv-002-a",
+      "name": "Wako - Kungo - Reservatório Principal",
+      "siteId": "site-002",
+      "siteName": "Wako - Kungo",
+      "capacity": 30000,
+      "capacityUnit": "liters",
+      "currentLevel": 28,
+      "currentVolume": 8400,
+      "status": "warning",
+      "estimatedRemaining": "~ 3 Dias",
+      "device": {
+        "id": "dev-002-a",
+        "name": "Sensor-KWS-001",
+        "status": "online",
+        "batteryLevel": 45,
+        "signalStrength": "medium",
+        "firmwareVersion": "v2.3.0",
+        "lastReading": "2h ago"
+      },
+      "location": {
+        "latitude": -11.3632509,
+        "longitude": 15.1197624,
+        "region": "Kwanza Sul"
+      },
+      "thresholds": {
+        "criticalLow": 15,
+        "warningLow": 30
+      },
+      "monitoringMode": "DEVICE",
+      "samplingFrequency": "hourly",
+      "createdAt": "2024-12-12T09:00:00Z",
+      "updatedAt": "2025-01-05T08:15:00Z"
+    },
+    {
+      "id": "rsv-003-a",
+      "name": "Vila Flor - Reservatório A",
+      "siteId": "site-003",
+      "siteName": "Vila Flor",
+      "capacity": 20000,
+      "capacityUnit": "liters",
+      "currentLevel": 85,
+      "currentVolume": 17000,
+      "status": "normal",
+      "estimatedRemaining": "~ 14 Dias",
+      "device": {
+        "id": "dev-003-a",
+        "name": "Sensor-LDA-003",
+        "status": "online",
+        "batteryLevel": 95,
+        "signalStrength": "strong",
+        "firmwareVersion": "v2.4.1",
+        "lastReading": "10m ago"
+      },
+      "location": {
+        "latitude": -8.8525067,
+        "longitude": 13.293972,
+        "region": "Luanda"
+      },
+      "thresholds": {
+        "criticalLow": 10,
+        "warningLow": 25
+      },
+      "monitoringMode": "DEVICE",
+      "samplingFrequency": "realtime",
+      "createdAt": "2024-12-08T10:00:00Z",
+      "updatedAt": "2025-01-05T10:20:00Z"
+    },
+    {
+      "id": "rsv-003-b",
+      "name": "Vila Flor - Reservatório B",
+      "siteId": "site-003",
+      "siteName": "Vila Flor",
+      "capacity": 15000,
+      "capacityUnit": "liters",
+      "currentLevel": 72,
+      "currentVolume": 10800,
+      "status": "normal",
+      "estimatedRemaining": "~ 10 Dias",
+      "device": {
+        "id": "dev-003-b",
+        "name": "Sensor-LDA-004",
+        "status": "online",
+        "batteryLevel": 78,
+        "signalStrength": "strong",
+        "firmwareVersion": "v2.4.1",
+        "lastReading": "12m ago"
+      },
+      "location": {
+        "latitude": -8.8528,
+        "longitude": 13.2942,
+        "region": "Luanda"
+      },
+      "thresholds": {
+        "criticalLow": 10,
+        "warningLow": 25
+      },
+      "monitoringMode": "DEVICE",
+      "samplingFrequency": "realtime",
+      "createdAt": "2024-12-08T10:30:00Z",
+      "updatedAt": "2025-01-05T10:18:00Z"
+    },
+    {
+      "id": "rsv-005-a",
+      "name": "Viana Sede - Cisterna Principal",
+      "siteId": "site-005",
+      "siteName": "Viana Sede",
+      "capacity": 50000,
+      "capacityUnit": "liters",
+      "currentLevel": 8,
+      "currentVolume": 4000,
+      "status": "critical",
+      "estimatedRemaining": "< 24 Horas",
+      "device": {
+        "id": "dev-005-a",
+        "name": "Sensor-LDA-009",
+        "status": "online",
+        "batteryLevel": 82,
+        "signalStrength": "strong",
+        "firmwareVersion": "v2.4.1",
+        "lastReading": "30m ago"
+      },
+      "location": {
+        "latitude": -8.9071192,
+        "longitude": 13.3743095,
+        "region": "Luanda"
+      },
+      "thresholds": {
+        "criticalLow": 10,
+        "warningLow": 25
+      },
+      "monitoringMode": "DEVICE",
+      "samplingFrequency": "realtime",
+      "createdAt": "2024-12-07T08:30:00Z",
+      "updatedAt": "2025-01-05T10:00:00Z"
+    },
+    {
+      "id": "rsv-005-b",
+      "name": "Viana Sede - Tanque Reserva",
+      "siteId": "site-005",
+      "siteName": "Viana Sede",
+      "capacity": 25000,
+      "capacityUnit": "liters",
+      "currentLevel": 12,
+      "currentVolume": 3000,
+      "status": "critical",
+      "estimatedRemaining": "~ 1 Dia",
+      "device": {
+        "id": "dev-005-b",
+        "name": "Sensor-LDA-010",
+        "status": "online",
+        "batteryLevel": 75,
+        "signalStrength": "medium",
+        "firmwareVersion": "v2.4.0",
+        "lastReading": "35m ago"
+      },
+      "location": {
+        "latitude": -8.9075,
+        "longitude": 13.3748,
+        "region": "Luanda"
+      },
+      "thresholds": {
+        "criticalLow": 15,
+        "warningLow": 30
+      },
+      "monitoringMode": "DEVICE",
+      "samplingFrequency": "realtime",
+      "createdAt": "2024-12-07T09:00:00Z",
+      "updatedAt": "2025-01-05T09:55:00Z"
+    },
+    {
+      "id": "rsv-008-a",
+      "name": "Uíge - Reservatório Municipal",
+      "siteId": "site-008",
+      "siteName": "Uíge",
+      "capacity": 40000,
+      "capacityUnit": "liters",
+      "currentLevel": 55,
+      "currentVolume": 22000,
+      "status": "stale",
+      "estimatedRemaining": "Dados Desatualizados",
+      "device": {
+        "id": "dev-008-a",
+        "name": "Sensor-UIG-001",
+        "status": "offline",
+        "batteryLevel": null,
+        "signalStrength": null,
+        "firmwareVersion": "v2.2.0",
+        "lastReading": "1d ago"
+      },
+      "location": {
+        "latitude": -7.617081,
+        "longitude": 15.0579643,
+        "region": "Uíge"
+      },
+      "thresholds": {
+        "criticalLow": 10,
+        "warningLow": 25
+      },
+      "monitoringMode": "DEVICE",
+      "samplingFrequency": "hourly",
+      "createdAt": "2024-12-14T08:00:00Z",
+      "updatedAt": "2025-01-04T10:00:00Z"
+    },
+    {
+      "id": "rsv-026-a",
+      "name": "Ondjiva - Cisterna Central",
+      "siteId": "site-026",
+      "siteName": "Ondjiva",
+      "capacity": 35000,
+      "capacityUnit": "liters",
+      "currentLevel": 5,
+      "currentVolume": 1750,
+      "status": "critical",
+      "estimatedRemaining": "Urgente",
+      "device": {
+        "id": "dev-026-a",
+        "name": "Sensor-CUN-001",
+        "status": "online",
+        "batteryLevel": 68,
+        "signalStrength": "weak",
+        "firmwareVersion": "v2.3.0",
+        "lastReading": "6h ago"
+      },
+      "location": {
+        "latitude": -17.0686002,
+        "longitude": 15.7281303,
+        "region": "Cunene"
+      },
+      "thresholds": {
+        "criticalLow": 10,
+        "warningLow": 25
+      },
+      "monitoringMode": "DEVICE",
+      "samplingFrequency": "hourly",
+      "createdAt": "2024-12-21T08:00:00Z",
+      "updatedAt": "2025-01-05T04:30:00Z"
+    },
+    {
+      "id": "rsv-039-a",
+      "name": "Lucapa - Tanque de Água",
+      "siteId": "site-039",
+      "siteName": "Lucapa",
+      "capacity": 30000,
+      "capacityUnit": "liters",
+      "currentLevel": 7,
+      "currentVolume": 2100,
+      "status": "critical",
+      "estimatedRemaining": "< 48 Horas",
+      "device": {
+        "id": "dev-039-a",
+        "name": "Sensor-LDN-001",
+        "status": "warning",
+        "batteryLevel": 22,
+        "signalStrength": "weak",
+        "firmwareVersion": "v2.2.0",
+        "lastReading": "8h ago"
+      },
+      "location": {
+        "latitude": -8.4183759,
+        "longitude": 20.7420158,
+        "region": "Lunda Norte"
+      },
+      "thresholds": {
+        "criticalLow": 10,
+        "warningLow": 25
+      },
+      "monitoringMode": "DEVICE",
+      "samplingFrequency": "daily",
+      "createdAt": "2024-12-20T09:00:00Z",
+      "updatedAt": "2025-01-05T02:30:00Z"
+    }
+  ],
+  "devices": [
+    {
+      "id": "dev-001-a",
+      "name": "#SEN-LDA-001",
+      "type": "Sensor de Nível",
+      "reservoirId": "rsv-001-a",
+      "reservoirName": "Zango II - Reservatório A",
+      "siteId": "site-001",
+      "siteName": "Zango II",
+      "pairingState": "paired",
+      "connectionStatus": "online",
+      "battery": 92,
+      "batteryTimeRemaining": "~14 dias restantes",
+      "firmware": "v2.4.1",
+      "desiredConfigVersion": "v2.1",
+      "appliedConfigVersion": "v2.1",
+      "configSynced": true,
+      "lastSeen": "5 mins ago",
+      "location": {
+        "latitude": -9.0302216,
+        "longitude": 13.4076118
+      },
+      "createdAt": "2024-12-10T08:00:00Z",
+      "updatedAt": "2025-01-05T10:25:00Z"
+    },
+    {
+      "id": "dev-001-b",
+      "name": "#SEN-LDA-002",
+      "type": "Sensor de Nível",
+      "reservoirId": "rsv-001-b",
+      "reservoirName": "Zango II - Reservatório B",
+      "siteId": "site-001",
+      "siteName": "Zango II",
+      "pairingState": "paired",
+      "connectionStatus": "online",
+      "battery": 88,
+      "batteryTimeRemaining": "~12 dias restantes",
+      "firmware": "v2.4.1",
+      "desiredConfigVersion": "v2.1",
+      "appliedConfigVersion": "v2.1",
+      "configSynced": true,
+      "lastSeen": "8 mins ago",
+      "location": {
+        "latitude": -9.0305,
+        "longitude": 13.4080
+      },
+      "createdAt": "2024-12-10T08:30:00Z",
+      "updatedAt": "2025-01-05T10:22:00Z"
+    },
+    {
+      "id": "dev-002-a",
+      "name": "#SEN-KWS-001",
+      "type": "Sensor de Nível",
+      "reservoirId": "rsv-002-a",
+      "reservoirName": "Wako - Kungo - Reservatório Principal",
+      "siteId": "site-002",
+      "siteName": "Wako - Kungo",
+      "pairingState": "warning",
+      "connectionStatus": "online",
+      "battery": 45,
+      "batteryTimeRemaining": "~5 dias restantes",
+      "firmware": "v2.3.0",
+      "desiredConfigVersion": "v2.2",
+      "appliedConfigVersion": "v2.1",
+      "configSynced": false,
+      "lastSeen": "2 hours ago",
+      "location": {
+        "latitude": -11.3632509,
+        "longitude": 15.1197624
+      },
+      "createdAt": "2024-12-12T09:00:00Z",
+      "updatedAt": "2025-01-05T08:15:00Z"
+    },
+    {
+      "id": "dev-008-a",
+      "name": "#SEN-UIG-001",
+      "type": "Sensor de Nível",
+      "reservoirId": "rsv-008-a",
+      "reservoirName": "Uíge - Reservatório Municipal",
+      "siteId": "site-008",
+      "siteName": "Uíge",
+      "pairingState": "error",
+      "connectionStatus": "offline",
+      "battery": null,
+      "batteryTimeRemaining": null,
+      "firmware": "v2.2.0",
+      "desiredConfigVersion": "v2.2",
+      "appliedConfigVersion": null,
+      "configSynced": false,
+      "lastSeen": "1 day ago",
+      "location": {
+        "latitude": -7.617081,
+        "longitude": 15.0579643
+      },
+      "createdAt": "2024-12-14T08:00:00Z",
+      "updatedAt": "2025-01-04T10:00:00Z"
+    },
+    {
+      "id": "dev-new-001",
+      "name": "#SEN-NEW-001",
+      "type": "Sensor de Nível",
+      "pairingState": "unpaired",
+      "connectionStatus": "online",
+      "firmware": "v2.4.1",
+      "configSynced": false,
+      "lastSeen": "Online",
+      "createdAt": "2025-01-04T10:00:00Z",
+      "updatedAt": "2025-01-04T10:00:00Z"
+    },
+    {
+      "id": "dev-new-002",
+      "name": "#SEN-NEW-002",
+      "type": "Sensor de Nível",
+      "pairingState": "unpaired",
+      "connectionStatus": "online",
+      "firmware": "v2.4.1",
+      "configSynced": false,
+      "lastSeen": "Online",
+      "createdAt": "2025-01-03T14:00:00Z",
+      "updatedAt": "2025-01-03T14:00:00Z"
+    }
+  ],
+  "alerts": [
+    {
+      "id": "alert-001",
+      "title": "Nível Crítico de Água",
+      "message": "Reservatório em Viana Sede atingiu nível crítico de 8%. Reabastecimento urgente necessário.",
+      "severity": "critical",
+      "status": "unread",
+      "context": "reservoir",
+      "source": {
+        "id": "rsv-005-a",
+        "type": "reservoir",
+        "name": "Viana Sede - Cisterna Principal",
+        "location": "Luanda - Viana"
+      },
+      "dataSnapshot": [
+        { "label": "Nível Actual", "value": "8", "unit": "%" },
+        { "label": "Limite Crítico", "value": "10", "unit": "%", "isThreshold": true }
+      ],
+      "timestamp": "30m ago",
+      "receivedAt": "Hoje às 10:00"
+    },
+    {
+      "id": "alert-002",
+      "title": "Nível Crítico de Água",
+      "message": "Cisterna em Ondjiva com apenas 5% de capacidade. Situação de emergência.",
+      "severity": "critical",
+      "status": "unread",
+      "context": "reservoir",
+      "source": {
+        "id": "rsv-026-a",
+        "type": "reservoir",
+        "name": "Ondjiva - Cisterna Central",
+        "location": "Cunene - Ondjiva"
+      },
+      "dataSnapshot": [
+        { "label": "Nível Actual", "value": "5", "unit": "%" },
+        { "label": "Limite Crítico", "value": "10", "unit": "%", "isThreshold": true }
+      ],
+      "timestamp": "6h ago",
+      "receivedAt": "Hoje às 04:30"
+    },
+    {
+      "id": "alert-003",
+      "title": "Dispositivo Offline",
+      "message": "Sensor #SEN-UIG-001 em Uíge não reporta há mais de 24 horas.",
+      "severity": "warning",
+      "status": "unread",
+      "context": "device",
+      "source": {
+        "id": "dev-008-a",
+        "type": "device",
+        "name": "Sensor #SEN-UIG-001",
+        "location": "Uíge"
+      },
+      "timestamp": "1d ago",
+      "receivedAt": "Ontem às 10:00"
+    },
+    {
+      "id": "alert-004",
+      "title": "Bateria Fraca",
+      "message": "Bateria do sensor em Lucapa está abaixo de 25%. Substituição recomendada.",
+      "severity": "warning",
+      "status": "read",
+      "context": "device",
+      "source": {
+        "id": "dev-039-a",
+        "type": "device",
+        "name": "Sensor #SEN-LDN-001",
+        "location": "Lunda Norte - Lucapa"
+      },
+      "dataSnapshot": [
+        { "label": "Bateria", "value": "22", "unit": "%" }
+      ],
+      "timestamp": "8h ago",
+      "receivedAt": "Hoje às 02:30"
+    },
+    {
+      "id": "alert-005",
+      "title": "Nível de Água Baixo",
+      "message": "Reservatório em Wako-Kungo atingiu 28% de capacidade.",
+      "severity": "warning",
+      "status": "read",
+      "context": "reservoir",
+      "source": {
+        "id": "rsv-002-a",
+        "type": "reservoir",
+        "name": "Wako - Kungo - Reservatório Principal",
+        "location": "Kwanza Sul"
+      },
+      "timestamp": "2h ago",
+      "receivedAt": "Hoje às 08:15"
+    },
+    {
+      "id": "alert-006",
+      "title": "Dados Desatualizados",
+      "message": "Reservatório em Luau não recebe dados há 2 dias.",
+      "severity": "warning",
+      "status": "read",
+      "context": "reservoir",
+      "source": {
+        "id": "rsv-040-a",
+        "type": "reservoir",
+        "name": "Luau - Reservatório",
+        "location": "Moxico - Luau"
+      },
+      "timestamp": "2d ago",
+      "receivedAt": "03/01/2025 às 16:00"
+    },
+    {
+      "id": "alert-007",
+      "title": "Configuração Pendente",
+      "message": "Sensor #SEN-KWS-001 aguarda sincronização de configuração.",
+      "severity": "info",
+      "status": "read",
+      "context": "device",
+      "source": {
+        "id": "dev-002-a",
+        "type": "device",
+        "name": "Sensor #SEN-KWS-001",
+        "location": "Kwanza Sul - Wako Kungo"
+      },
+      "timestamp": "2h ago",
+      "receivedAt": "Hoje às 08:15"
+    },
+    {
+      "id": "alert-008",
+      "title": "Reabastecimento Concluído",
+      "message": "Reservatório em Lobito reabastecido com sucesso. Nível actual: 85%.",
+      "severity": "info",
+      "status": "read",
+      "context": "reservoir",
+      "source": {
+        "id": "rsv-041-a",
+        "type": "reservoir",
+        "name": "Lobito - Reservatório A",
+        "location": "Benguela - Lobito"
+      },
+      "timestamp": "1d ago",
+      "receivedAt": "Ontem às 14:30"
+    }
+  ],
+  "members": [
+    {
+      "id": "member-001",
+      "name": "Administrator",
+      "email": "admin@unitel.ao",
+      "role": "admin",
+      "scope": "Acesso Global",
+      "status": "active",
+      "lastActive": "Agora",
+      "createdAt": "2024-12-01"
+    },
+    {
+      "id": "member-002",
+      "name": "Carlos Mendes",
+      "email": "carlos.mendes@unitel.ao",
+      "role": "site_manager",
+      "scope": "Zona Luanda",
+      "scopeDetails": "+ 36 sites",
+      "status": "active",
+      "lastActive": "2 horas atrás",
+      "createdAt": "2024-12-05"
+    },
+    {
+      "id": "member-003",
+      "name": "Ana Ferreira",
+      "email": "ana.ferreira@unitel.ao",
+      "role": "site_manager",
+      "scope": "Zona Sul",
+      "scopeDetails": "+ 15 sites",
+      "status": "active",
+      "lastActive": "Ontem",
+      "createdAt": "2024-12-08"
+    },
+    {
+      "id": "member-004",
+      "name": "Manuel Santos",
+      "email": "manuel.santos@unitel.ao",
+      "role": "viewer",
+      "scope": "Zona Leste",
+      "status": "active",
+      "lastActive": "3 dias atrás",
+      "createdAt": "2024-12-10"
+    },
+    {
+      "id": "member-005",
+      "name": "Técnico Externo",
+      "email": "tecnico@parceiro.ao",
+      "role": "technician",
+      "scope": "Benguela",
+      "status": "pending",
+      "createdAt": "2024-12-28"
+    }
+  ],
+  "settings": {
+    "profile": {
+      "firstName": "Admin",
+      "lastName": "Unitel",
+      "email": "admin@unitel.ao",
+      "phone": "+244 923 000 000",
+      "department": "Infraestruturas",
+      "role": "Administrador de Sistema"
+    },
+    "organization": {
+      "name": "Unitel Angola",
+      "industry": "Telecomunicações",
+      "country": "Angola",
+      "region": "Luanda",
+      "city": "Luanda",
+      "address": "Via C3, Sector 22, Talatona",
+      "timezone": "Africa/Luanda",
+      "units": "metric",
+      "dateFormat": "DD/MM/YYYY"
+    }
+  }
+}

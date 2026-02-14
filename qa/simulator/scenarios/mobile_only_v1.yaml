@@ -1,0 +1,88 @@
+scenario_id: mobile_only_v1
+seed: 20260212
+timezone: UTC
+speedup_factor: 15.0
+mqtt:
+  host: null
+  port: 8883
+  cert_path: null
+  key_path: null
+bootstrap:
+  days: 14
+  step_minutes: 5
+  drain_analytics: true
+devices:
+  - device_id: E2E2024MOBH1
+    archetype: mobile_high_efficiency
+    mode: MOBILE
+    cadence_seconds: 300
+    route_id: route_fast
+    parameter_overrides:
+      initial_volume_ratio: 0.70
+  - device_id: E2E2024MOBL1
+    archetype: mobile_fragmented_high_loss
+    mode: MOBILE
+    cadence_seconds: 300
+    route_id: route_fragmented
+    parameter_overrides:
+      initial_volume_ratio: 0.64
+routes:
+  - route_id: route_fast
+    points:
+      - point_id: fast_base
+        kind: BASE
+        latitude: -8.8400
+        longitude: 13.2350
+      - point_id: fast_refill
+        kind: REFILL
+        latitude: -8.8180
+        longitude: 13.1900
+      - point_id: fast_client_a
+        kind: CLIENT
+        latitude: -8.8520
+        longitude: 13.2720
+      - point_id: fast_client_b
+        kind: CLIENT
+        latitude: -8.8670
+        longitude: 13.2590
+    transitions:
+      - from_kind: BASE
+        to_kind: REFILL
+        probability: 1.0
+      - from_kind: REFILL
+        to_kind: CLIENT
+        probability: 1.0
+      - from_kind: CLIENT
+        to_kind: BASE
+        probability: 1.0
+  - route_id: route_fragmented
+    points:
+      - point_id: frag_base
+        kind: BASE
+        latitude: -8.8330
+        longitude: 13.2480
+      - point_id: frag_refill
+        kind: REFILL
+        latitude: -8.7990
+        longitude: 13.2050
+      - point_id: frag_client_a
+        kind: CLIENT
+        latitude: -8.8900
+        longitude: 13.2460
+      - point_id: frag_client_b
+        kind: CLIENT
+        latitude: -8.8760
+        longitude: 13.3030
+    transitions:
+      - from_kind: BASE
+        to_kind: REFILL
+        probability: 1.0
+      - from_kind: REFILL
+        to_kind: CLIENT
+        probability: 1.0
+      - from_kind: CLIENT
+        to_kind: BASE
+        probability: 1.0
+# Target tendencies:
+# - mobile_high_efficiency: higher liters_per_km, lower mobile_nrw_liters
+# - mobile_fragmented_high_loss: higher downtime/unknown tendencies and NRW
