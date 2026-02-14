@@ -1,0 +1,2674 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jila — Saiba quantos dias de água ainda tem</title>
+    <meta name="description"
+        content="Plataforma de monitorização de água para mercados com abastecimento intermitente. Monitorize reservatórios, conecte-se a vendedores, gere evidências confiáveis.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ============================================
+   JILA — DESIGN TOKENS
+   Calm Engineering · Blueprints of Life
+   ============================================ */
+
+        :root {
+            /* Core palette */
+            --midnight: #0B1A2E;
+            --midnight-deep: #061222;
+            --navy: #0F2440;
+            --blue-trust: #1A6B8A;
+            --teal-primary: #2A9DB5;
+            --teal-light: #3CC0D8;
+            --teal-pale: #E8F6F9;
+            --teal-ghost: #F4FAFB;
+
+            /* Semantic */
+            --green-confirm: #2E8B57;
+            --green-light: #E8F5EE;
+            --terracotta: #C8663E;
+            --terracotta-light: #FFF0E8;
+            --red-alert: #C0392B;
+            --red-light: #FDECEB;
+
+            /* Neutrals */
+            --white: #FFFFFF;
+            --grey-50: #F7F8FA;
+            --grey-100: #EEF0F4;
+            --grey-200: #D8DDE5;
+            --grey-300: #B0B8C4;
+            --grey-400: #8892A0;
+            --grey-600: #4A5568;
+            --grey-700: #2D3748;
+            --grey-900: #1A202C;
+
+            /* Typography */
+            --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+            --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+            --space-4xl: 96px;
+            --space-5xl: 128px;
+
+            /* Layout */
+            --max-width: 1120px;
+            --section-padding: clamp(64px, 10vw, 128px);
+        }
+
+        /* ============================================
+   RESET & BASE
+   ============================================ */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--grey-900);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        img,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: var(--blue-trust);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--teal-primary);
+        }
+
+        /* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-sans);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--midnight);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+            letter-spacing: -0.015em;
+        }
+
+        h3 {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+        }
+
+        h4 {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .mono {
+            font-family: var(--font-mono);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--grey-400);
+        }
+
+        /* ============================================
+   LAYOUT
+   ============================================ */
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        section {
+            padding: var(--section-padding) 0;
+        }
+
+        /* ============================================
+   NAVIGATION
+   ============================================ */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--grey-100);
+            transition: box-shadow 0.3s;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 1px 8px rgba(11, 26, 46, 0.06);
+        }
+
+        .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--midnight);
+            text-decoration: none;
+        }
+
+        .nav-logo svg {
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xl);
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--grey-600);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--midnight);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 8px 20px;
+            background: var(--teal-primary);
+            color: var(--white) !important;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .nav-cta:hover {
+            background: var(--blue-trust);
+            color: var(--white) !important;
+            transform: translateY(-1px);
+        }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--space-sm);
+            color: var(--midnight);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-mobile-toggle {
+                display: block;
+            }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                border-bottom: 1px solid var(--grey-100);
+                padding: var(--space-lg);
+                gap: var(--space-md);
+                box-shadow: 0 8px 24px rgba(11, 26, 46, 0.08);
+            }
+        }
+
+        /* ============================================
+   HERO SECTION
+   ============================================ */
+
+        .hero {
+            padding-top: calc(64px + var(--section-padding));
+            padding-bottom: var(--section-padding);
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -10%;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse at 70% 30%, rgba(42, 157, 181, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-2xl);
+                text-align: center;
+            }
+        }
+
+        .hero-text h1 {
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero-text h1 span {
+            color: var(--teal-primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: var(--grey-600);
+            margin-bottom: var(--space-xl);
+            max-width: 480px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 900px) {
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-xl);
+        }
+
+        @media (max-width: 900px) {
+            .hero-ctas {
+                justify-content: center;
+            }
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 14px 28px;
+            background: var(--teal-primary);
+            color: var(--white);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: var(--font-sans);
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(42, 157, 181, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-trust);
+            color: var(--white);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(42, 157, 181, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 14px 28px;
+            background: transparent;
+            color: var(--grey-700);
+            border: 1.5px solid var(--grey-200);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: var(--font-sans);
+            cursor: pointer;
+            transition: border-color 0.2s, color 0.2s, transform 0.15s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--teal-primary);
+            color: var(--teal-primary);
+            transform: translateY(-1px);
+        }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--blue-trust);
+            padding: 14px 4px;
+        }
+
+        .btn-link:hover {
+            color: var(--teal-primary);
+        }
+
+        .btn-link svg {
+            transition: transform 0.2s;
+        }
+
+        .btn-link:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* Trust chips */
+        .trust-chips {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 900px) {
+            .trust-chips {
+                justify-content: center;
+            }
+        }
+
+        .trust-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--teal-ghost);
+            border: 1px solid rgba(42, 157, 181, 0.12);
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--blue-trust);
+        }
+
+        .trust-chip svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        /* Hero illustration — Tank blueprint */
+        .hero-illustration {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tank-blueprint {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 3 / 4;
+            background: var(--midnight);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(11, 26, 46, 0.15), 0 0 0 1px rgba(42, 157, 181, 0.1);
+        }
+
+        .tank-svg-wrap {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+        }
+
+        .tank-data-overlay {
+            position: absolute;
+            bottom: var(--space-xl);
+            left: var(--space-xl);
+            right: var(--space-xl);
+        }
+
+        .tank-data-days {
+            font-family: var(--font-mono);
+            font-size: 3rem;
+            font-weight: 500;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .tank-data-days small {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.7;
+        }
+
+        .tank-data-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.04em;
+        }
+
+        .tank-data-meta {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tank-meta-item {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .tank-meta-item strong {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.8125rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .hero-illustration {
+                margin-top: var(--space-lg);
+            }
+
+            .tank-blueprint {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+        }
+
+        /* ============================================
+   SECTION: PROBLEM FRAMING (Validation)
+   ============================================ */
+
+        .section-problem {
+            background: var(--grey-50);
+            border-top: 1px solid var(--grey-100);
+            border-bottom: 1px solid var(--grey-100);
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-header {
+            max-width: 560px;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-header p {
+            color: var(--grey-600);
+            margin-top: var(--space-md);
+            font-size: 1.0625rem;
+        }
+
+        .problem-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        @media (max-width: 768px) {
+            .problem-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .problem-card {
+            padding: var(--space-xl);
+            background: var(--white);
+            border: 1px solid var(--grey-100);
+            border-radius: 12px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .problem-card:hover {
+            border-color: var(--grey-200);
+            box-shadow: 0 4px 16px rgba(11, 26, 46, 0.04);
+        }
+
+        .problem-card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--midnight);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .problem-card-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--teal-light);
+        }
+
+        .problem-card h3 {
+            margin-bottom: var(--space-sm);
+            font-size: 1.125rem;
+        }
+
+        .problem-card p {
+            color: var(--grey-600);
+            font-size: 0.9375rem;
+            line-height: 1.65;
+        }
+
+        /* ============================================
+   SECTION: THREE PILLARS (Hope)
+   ============================================ */
+
+        .section-pillars {
+            background: var(--white);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            counter-reset: pillar;
+        }
+
+        @media (max-width: 768px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pillar-card {
+            padding: var(--space-2xl) var(--space-xl);
+            border: 1px solid var(--grey-100);
+            border-radius: 14px;
+            position: relative;
+            counter-increment: pillar;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .pillar-card:hover {
+            border-color: rgba(42, 157, 181, 0.3);
+            box-shadow: 0 8px 24px rgba(42, 157, 181, 0.06);
+        }
+
+        .pillar-number {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--teal-primary);
+            margin-bottom: var(--space-md);
+            font-weight: 500;
+        }
+
+        .pillar-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--teal-ghost);
+            border: 1px solid rgba(42, 157, 181, 0.12);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .pillar-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--teal-primary);
+        }
+
+        .pillar-card h3 {
+            margin-bottom: var(--space-sm);
+        }
+
+        .pillar-card p {
+            color: var(--grey-600);
+            font-size: 0.9375rem;
+        }
+
+        /* ============================================
+   SECTION: HOW IT WORKS (Clarity)
+   ============================================ */
+
+        .section-how {
+            background: var(--midnight);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-how::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(42, 157, 181, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(42, 157, 181, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .section-how .section-header {
+            position: relative;
+        }
+
+        .section-how h2 {
+            color: var(--white);
+        }
+
+        .section-how .section-header p {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .section-how .label {
+            color: var(--teal-light);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            position: relative;
+        }
+
+        @media (max-width: 900px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 540px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .step-card {
+            padding: var(--space-xl);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            position: relative;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .step-card:hover {
+            border-color: rgba(42, 157, 181, 0.3);
+            background: rgba(42, 157, 181, 0.05);
+        }
+
+        .step-number {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            font-weight: 500;
+            color: rgba(42, 157, 181, 0.3);
+            line-height: 1;
+            margin-bottom: var(--space-md);
+        }
+
+        .step-icon {
+            width: 48px;
+            height: 48px;
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .step-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--teal-light);
+        }
+
+        .step-card h4 {
+            color: var(--white);
+            margin-bottom: var(--space-sm);
+            font-weight: 500;
+        }
+
+        .step-card p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Mode toggle */
+        .mode-toggle {
+            display: inline-flex;
+            margin-top: var(--space-2xl);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 4px;
+            position: relative;
+        }
+
+        .mode-toggle button {
+            padding: 10px 24px;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: color 0.2s, background 0.2s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mode-toggle button.active {
+            background: rgba(42, 157, 181, 0.15);
+            color: var(--teal-light);
+        }
+
+        .mode-toggle button:hover:not(.active) {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ============================================
+   SECTION: SEGMENTS (Identity / Choose your path)
+   ============================================ */
+
+        .section-segments {
+            background: var(--white);
+        }
+
+        .segments-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        @media (max-width: 768px) {
+            .segments-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .segment-card {
+            padding: var(--space-2xl);
+            border: 1.5px solid var(--grey-100);
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .segment-card:hover {
+            border-color: var(--teal-primary);
+            box-shadow: 0 8px 32px rgba(42, 157, 181, 0.08);
+        }
+
+        .segment-emoji {
+            font-size: 2rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .segment-card h3 {
+            margin-bottom: var(--space-sm);
+        }
+
+        .segment-card .segment-desc {
+            color: var(--grey-600);
+            font-size: 0.9375rem;
+            margin-bottom: var(--space-lg);
+        }
+
+        .segment-benefits {
+            list-style: none;
+            margin-bottom: var(--space-xl);
+            flex-grow: 1;
+        }
+
+        .segment-benefits li {
+            padding: 6px 0;
+            font-size: 0.9375rem;
+            color: var(--grey-700);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+        }
+
+        .segment-benefits li::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--teal-primary);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .segment-card .btn-primary {
+            text-align: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* ============================================
+   SECTION: TRUST PRINCIPLES (Safety)
+   ============================================ */
+
+        .section-trust {
+            background: var(--grey-50);
+            border-top: 1px solid var(--grey-100);
+            border-bottom: 1px solid var(--grey-100);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+        }
+
+        @media (max-width: 768px) {
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .trust-item {
+            display: flex;
+            gap: var(--space-md);
+            padding: var(--space-xl);
+            background: var(--white);
+            border: 1px solid var(--grey-100);
+            border-radius: 12px;
+        }
+
+        .trust-item-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--teal-ghost);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .trust-item-icon svg {
+            width: 20px;
+            height: 20px;
+            color: var(--teal-primary);
+        }
+
+        .trust-item h4 {
+            margin-bottom: 4px;
+            color: var(--midnight);
+        }
+
+        .trust-item p {
+            color: var(--grey-600);
+            font-size: 0.875rem;
+        }
+
+        .trust-wont-do {
+            margin-top: var(--space-2xl);
+            padding: var(--space-xl);
+            background: var(--white);
+            border: 1px solid var(--grey-100);
+            border-radius: 12px;
+        }
+
+        .trust-wont-do h4 {
+            margin-bottom: var(--space-md);
+            color: var(--grey-400);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .trust-wont-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+
+        .trust-wont-tag {
+            padding: 6px 14px;
+            background: var(--grey-50);
+            border: 1px solid var(--grey-100);
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            color: var(--grey-600);
+        }
+
+        /* ============================================
+   SECTION: CREDIBILITY (Proof)
+   ============================================ */
+
+        .section-credibility {
+            background: var(--white);
+            text-align: center;
+        }
+
+        .credibility-label {
+            margin-bottom: var(--space-2xl);
+        }
+
+        .logos-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+        }
+
+        .logo-item:hover .logo-box {
+            border-color: var(--grey-200);
+        }
+
+        .logo-box {
+            width: 120px;
+            height: 60px;
+            border: 1px solid var(--grey-100);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--grey-50);
+            transition: border-color 0.2s;
+            padding: var(--space-sm);
+        }
+
+        .logo-box span {
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.75rem;
+            color: var(--grey-400);
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .logo-caption {
+            font-size: 0.75rem;
+            color: var(--grey-400);
+        }
+
+        .earthshot-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 10px 20px;
+            background: var(--green-light);
+            border: 1px solid rgba(46, 139, 87, 0.15);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--green-confirm);
+        }
+
+        /* ============================================
+   SECTION: PRICING
+   ============================================ */
+
+        .section-pricing {
+            background: var(--grey-50);
+            border-top: 1px solid var(--grey-100);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-3xl);
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pricing-card {
+            padding: var(--space-2xl);
+            background: var(--white);
+            border: 1.5px solid var(--grey-100);
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--teal-primary);
+            box-shadow: 0 8px 32px rgba(42, 157, 181, 0.08);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: 'Recomendado';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 4px 16px;
+            background: var(--teal-primary);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 100px;
+            font-family: var(--font-mono);
+            letter-spacing: 0.02em;
+        }
+
+        .pricing-tier {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--teal-primary);
+            font-weight: 500;
+            margin-bottom: var(--space-sm);
+        }
+
+        .pricing-card h3 {
+            margin-bottom: var(--space-xs);
+        }
+
+        .pricing-price {
+            font-family: var(--font-mono);
+            font-size: 1.75rem;
+            font-weight: 500;
+            color: var(--midnight);
+            margin-bottom: var(--space-sm);
+        }
+
+        .pricing-price small {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--grey-400);
+        }
+
+        .pricing-best {
+            font-size: 0.8125rem;
+            color: var(--grey-400);
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--grey-100);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: var(--space-xl);
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            padding: 5px 0;
+            font-size: 0.875rem;
+            color: var(--grey-700);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+        }
+
+        .pricing-features li svg {
+            width: 16px;
+            height: 16px;
+            color: var(--green-confirm);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .pricing-card .btn-primary,
+        .pricing-card .btn-secondary {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Device section */
+        .device-section {
+            background: var(--white);
+            border: 1.5px solid var(--grey-100);
+            border-radius: 16px;
+            padding: var(--space-2xl);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .device-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .device-illustration {
+            width: 200px;
+            height: 200px;
+            background: var(--midnight);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .device-info h3 {
+            margin-bottom: var(--space-sm);
+        }
+
+        .device-info .device-price {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--teal-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .device-info .device-price small {
+            font-size: 0.875rem;
+            color: var(--grey-400);
+            font-weight: 400;
+        }
+
+        .device-details {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm) var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .device-details li {
+            font-size: 0.875rem;
+            color: var(--grey-600);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .device-details li svg {
+            width: 16px;
+            height: 16px;
+            color: var(--teal-primary);
+        }
+
+        .device-notice {
+            padding: var(--space-md);
+            background: var(--terracotta-light);
+            border: 1px solid rgba(200, 102, 62, 0.15);
+            border-radius: 8px;
+            font-size: 0.8125rem;
+            color: var(--terracotta);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+
+        .trial-steps {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .trial-step {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 8px 16px;
+            background: var(--grey-50);
+            border: 1px solid var(--grey-100);
+            border-radius: 8px;
+            font-size: 0.8125rem;
+            color: var(--grey-700);
+        }
+
+        .trial-step .step-num {
+            width: 20px;
+            height: 20px;
+            background: var(--teal-primary);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ============================================
+   SECTION: CONTACT / CTA
+   ============================================ */
+
+        .section-contact {
+            background: var(--midnight);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-contact::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 30% 70%, rgba(42, 157, 181, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-text h2 {
+            color: var(--white);
+        }
+
+        .contact-text p {
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: var(--space-md);
+            font-size: 1.0625rem;
+        }
+
+        .contact-steps {
+            list-style: none;
+            margin-top: var(--space-xl);
+        }
+
+        .contact-steps li {
+            padding: 8px 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9375rem;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .contact-steps li svg {
+            width: 18px;
+            height: 18px;
+            color: var(--teal-light);
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: var(--space-xl);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            color: var(--white);
+            font-family: var(--font-sans);
+            font-size: 0.9375rem;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--teal-primary);
+            background: rgba(42, 157, 181, 0.06);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        .form-group select option {
+            background: var(--midnight);
+            color: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+        }
+
+        @media (max-width: 540px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-methods {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+
+        .contact-method-btn {
+            flex: 1;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: var(--font-sans);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .contact-method-btn:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-method-btn.active {
+            background: rgba(37, 211, 102, 0.1);
+            border-color: rgba(37, 211, 102, 0.3);
+            color: #25D366;
+        }
+
+        .contact-method-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .btn-whatsapp {
+            width: 100%;
+            padding: 14px 28px;
+            background: #25D366;
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .btn-whatsapp:hover {
+            background: #20BD5A;
+            transform: translateY(-1px);
+        }
+
+        /* ============================================
+   FOOTER
+   ============================================ */
+
+        footer {
+            background: var(--midnight-deep);
+            color: rgba(255, 255, 255, 0.4);
+            padding: var(--space-2xl) 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-links a:hover {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+        }
+
+        /* ============================================
+   ANIMATIONS
+   ============================================ */
+
+        @media (prefers-reduced-motion: no-preference) {
+            .fade-up {
+                opacity: 0;
+                transform: translateY(24px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .fade-up.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .stagger>* {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            .stagger.visible>*:nth-child(1) {
+                transition-delay: 0ms;
+            }
+
+            .stagger.visible>*:nth-child(2) {
+                transition-delay: 80ms;
+            }
+
+            .stagger.visible>*:nth-child(3) {
+                transition-delay: 160ms;
+            }
+
+            .stagger.visible>*:nth-child(4) {
+                transition-delay: 240ms;
+            }
+
+            .stagger.visible>* {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* Tank water animation */
+            @keyframes waterWave {
+
+                0%,
+                100% {
+                    d: path("M0,8 Q60,4 120,8 T240,8 L240,80 L0,80 Z");
+                }
+
+                50% {
+                    d: path("M0,8 Q60,12 120,8 T240,8 L240,80 L0,80 Z");
+                }
+            }
+
+            .water-surface {
+                animation: waterWave 4s ease-in-out infinite;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-up {
+                opacity: 1;
+                transform: none;
+            }
+
+            .stagger>* {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* ============================================
+   UTILITY
+   ============================================ */
+        .text-center {
+            text-align: center;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================
+     NAVIGATION
+     ============================================ -->
+    <nav id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <rect width="28" height="28" rx="7" fill="#0B1A2E" />
+                    <path d="M8 20V8h2.5v10h5V8H18v12" stroke="#3CC0D8" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <circle cx="21" cy="8" r="2" fill="#3CC0D8" opacity="0.5" />
+                </svg>
+                Jila
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#como-funciona">Como funciona</a></li>
+                <li><a href="#para-quem">Para quem</a></li>
+                <li><a href="#precos">Preços</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#demo" class="nav-cta">Pedir demonstração</a></li>
+            </ul>
+            <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"
+                aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================
+     HERO
+     ============================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text fade-up">
+                    <h1>Saiba quantos <span>dias de água</span> ainda tem.</h1>
+                    <p class="hero-subtitle">Monitorize os seus reservatórios, conecte-se a vendedores de água e gere
+                        evidências confiáveis — tudo numa plataforma pensada para o abastecimento intermitente.</p>
+                    <div class="hero-ctas">
+                        <a href="#" class="btn-primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" />
+                                <line x1="12" y1="18" x2="12" y2="18.01" />
+                            </svg>
+                            Obter a app
+                        </a>
+                        <a href="#demo" class="btn-secondary">Pedir demonstração</a>
+                        <a href="#" class="btn-link">
+                            Entrar na lista de espera
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="trust-chips">
+                        <span class="trust-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                            Funciona com conectividade intermitente
+                        </span>
+                        <span class="trust-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                <path d="M2 17l10 5 10-5" />
+                                <path d="M2 12l10 5 10-5" />
+                            </svg>
+                            Manual ou com sensor
+                        </span>
+                        <span class="trust-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 16v-4" />
+                                <path d="M12 8h.01" />
+                            </svg>
+                            Monitorização de confiança
+                        </span>
+                    </div>
+                </div>
+
+                <div class="hero-illustration fade-up">
+                    <div class="tank-blueprint">
+                        <div class="tank-svg-wrap">
+                            <svg viewBox="0 0 240 300" fill="none" width="100%" height="100%">
+                                <!-- Tank outline -->
+                                <rect x="30" y="30" width="180" height="240" rx="8" stroke="rgba(255,255,255,0.12)"
+                                    stroke-width="1.5" fill="none" />
+                                <rect x="30" y="30" width="180" height="240" rx="8" fill="rgba(255,255,255,0.02)" />
+
+                                <!-- Water fill (65%) -->
+                                <clipPath id="tankClip">
+                                    <rect x="32" y="32" width="176" height="236" rx="6" />
+                                </clipPath>
+                                <g clip-path="url(#tankClip)">
+                                    <rect x="32" y="118" width="176" height="150" fill="rgba(42,157,181,0.15)" />
+                                    <!-- Water surface wave -->
+                                    <g transform="translate(32, 110)">
+                                        <path class="water-surface" d="M0,8 Q44,4 88,8 T176,8 L176,12 L0,12 Z"
+                                            fill="rgba(60,192,216,0.25)" />
+                                        <path d="M0,10 Q44,6 88,10 T176,10 L176,14 L0,14 Z"
+                                            fill="rgba(42,157,181,0.12)" />
+                                    </g>
+                                </g>
+
+                                <!-- Measurement lines -->
+                                <line x1="22" y1="52" x2="28" y2="52" stroke="rgba(255,255,255,0.15)"
+                                    stroke-width="1" />
+                                <line x1="22" y1="100" x2="28" y2="100" stroke="rgba(255,255,255,0.15)"
+                                    stroke-width="1" />
+                                <line x1="22" y1="150" x2="28" y2="150" stroke="rgba(255,255,255,0.15)"
+                                    stroke-width="1" />
+                                <line x1="22" y1="200" x2="28" y2="200" stroke="rgba(255,255,255,0.15)"
+                                    stroke-width="1" />
+                                <line x1="22" y1="248" x2="28" y2="248" stroke="rgba(255,255,255,0.15)"
+                                    stroke-width="1" />
+
+                                <!-- Labels -->
+                                <text x="16" y="55" text-anchor="end" fill="rgba(255,255,255,0.2)"
+                                    font-family="IBM Plex Mono" font-size="8">100%</text>
+                                <text x="16" y="153" text-anchor="end" fill="rgba(255,255,255,0.2)"
+                                    font-family="IBM Plex Mono" font-size="8">50%</text>
+                                <text x="16" y="251" text-anchor="end" fill="rgba(255,255,255,0.2)"
+                                    font-family="IBM Plex Mono" font-size="8">0%</text>
+
+                                <!-- Level indicator line -->
+                                <line x1="30" y1="118" x2="210" y2="118" stroke="rgba(60,192,216,0.5)" stroke-width="1"
+                                    stroke-dasharray="4 3" />
+                                <circle cx="210" cy="118" r="3" fill="#3CC0D8" />
+                                <text x="220" y="121" fill="rgba(60,192,216,0.8)" font-family="IBM Plex Mono"
+                                    font-size="9">65%</text>
+
+                                <!-- Sensor icon at top -->
+                                <circle cx="120" cy="18" r="6" stroke="rgba(255,255,255,0.15)" stroke-width="1"
+                                    fill="rgba(42,157,181,0.1)" />
+                                <circle cx="120" cy="18" r="2" fill="rgba(60,192,216,0.5)" />
+
+                                <!-- Pipe connector -->
+                                <rect x="90" y="270" width="60" height="8" rx="4" stroke="rgba(255,255,255,0.1)"
+                                    stroke-width="1" fill="none" />
+                            </svg>
+                        </div>
+
+                        <div class="tank-data-overlay">
+                            <div class="tank-data-days">3 <small>dias restantes</small></div>
+                            <div class="tank-data-label">Reservatório principal · 5 000 L</div>
+                            <div class="tank-data-meta">
+                                <div class="tank-meta-item">
+                                    <strong>65 %</strong>
+                                    Nível
+                                </div>
+                                <div class="tank-meta-item">
+                                    <strong>3 250 L</strong>
+                                    Volume
+                                </div>
+                                <div class="tank-meta-item">
+                                    <strong>14:32</strong>
+                                    Última atualização
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+     PROBLEM FRAMING
+     ============================================ -->
+    <section class="section-problem" id="problema">
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="section-label">
+                    <span class="label">A realidade</span>
+                </div>
+                <h2>A água é uma negociação diária.</h2>
+                <p>Em Luanda, apenas um terço dos lares tem ligação direta à rede. O resto depende de uma economia
+                    paralela — camiões-cisterna, furos e vendedores informais, sem coordenação nem transparência.</p>
+            </div>
+
+            <div class="problem-cards stagger">
+                <div class="problem-card">
+                    <div class="problem-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <path d="M12 2v6l3 3" />
+                            <circle cx="12" cy="14" r="8" />
+                        </svg>
+                    </div>
+                    <h3>A água nem sempre chega.</h3>
+                    <p>O abastecimento é imprevisível. Pode haver água durante algumas horas, ou não durante dias. As
+                        famílias não sabem quanto tempo o reservatório vai durar.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <line x1="12" y1="1" x2="12" y2="23" />
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                    </div>
+                    <h3>Recargas de emergência custam caro.</h3>
+                    <p>Quando a água acaba de madrugada, paga-se 40 a 50 vezes o preço subsidiado. É nos momentos de
+                        pânico que mais dinheiro e confiança se perdem.</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </div>
+                    <h3>É difícil confiar nos dados.</h3>
+                    <p>Não existe um painel que mostre quais bairros ficaram sem água esta semana. Sem dados
+                        independentes, é impossível provar se as intervenções funcionaram.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+     THREE PILLARS
+     ============================================ -->
+    <section class="section-pillars" id="pilares">
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="section-label">
+                    <span class="label">O que o Jila faz</span>
+                </div>
+                <h2>Monitorizar. Conectar. Provar.</h2>
+                <p>Três pilares para transformar o abastecimento intermitente em informação útil, conexões fiáveis e
+                    evidências concretas.</p>
+            </div>
+
+            <div class="pillars-grid stagger">
+                <div class="pillar-card">
+                    <div class="pillar-number">Acto 01</div>
+                    <div class="pillar-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg>
+                    </div>
+                    <h3>Monitorizar reservatórios</h3>
+                    <p>Veja o nível, o estado do sensor (quando disponível) e a última atualização. Saiba quantos dias
+                        de água ainda tem — não litros, mas tempo.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-number">Acto 02</div>
+                    <div class="pillar-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <line x1="19" y1="8" x2="19" y2="14" />
+                            <line x1="22" y1="11" x2="16" y2="11" />
+                        </svg>
+                    </div>
+                    <h3>Conectar compradores e vendedores</h3>
+                    <p>Quando precisa de uma recarga, encontre opções e avance com transparência. Preços visíveis.
+                        Entrega confirmada por ambas as partes.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-number">Acto 03</div>
+                    <div class="pillar-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                        </svg>
+                    </div>
+                    <h3>Gerar evidências confiáveis</h3>
+                    <p>Para organizações: visibilidade ao nível de cada local e histórico para planeamento. Dados
+                        exportáveis para relatórios e decisões informadas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+     HOW IT WORKS
+     ============================================ -->
+    <section class="section-how" id="como-funciona">
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="section-label">
+                    <span class="label">Como funciona</span>
+                </div>
+                <h2>Quatro passos. Sem magia.</h2>
+                <p>Um sistema desenhado para ser compreendido sem ler uma única palavra.</p>
+            </div>
+
+            <div class="steps-grid stagger">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <line x1="3" y1="9" x2="21" y2="9" />
+                            <line x1="9" y1="21" x2="9" y2="9" />
+                        </svg>
+                    </div>
+                    <h4>Registe o reservatório</h4>
+                    <p>Adicione as dimensões e o tipo. Funciona com ou sem sensor instalado.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg>
+                    </div>
+                    <h4>Veja o nível em tempo real</h4>
+                    <p>Leitura manual por slider ou dados automáticos do sensor. Sempre com timestamp e confiança.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <circle cx="9" cy="21" r="1" />
+                            <circle cx="20" cy="21" r="1" />
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                        </svg>
+                    </div>
+                    <h4>Encomende quando precisar</h4>
+                    <p>Preço transparente, vendedor confirmado. Sem surpresas, sem pânico.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <line x1="18" y1="20" x2="18" y2="10" />
+                            <line x1="12" y1="20" x2="12" y2="4" />
+                            <line x1="6" y1="20" x2="6" y2="14" />
+                        </svg>
+                    </div>
+                    <h4>Gere relatórios</h4>
+                    <p>Exporte dados de consumo, recargas e intermitência para relatórios e tomada de decisão.</p>
+                </div>
+            </div>
+
+            <div class="text-center fade-up" style="margin-top: var(--space-2xl);">
+                <div class="mode-toggle">
+                    <button class="active" onclick="setMode(this)">Manual</button>
+                    <button onclick="setMode(this)">Com sensor</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+     SEGMENTS — CHOOSE YOUR PATH
+     ============================================ -->
+    <section class="section-segments" id="para-quem">
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="section-label">
+                    <span class="label">Para quem</span>
+                </div>
+                <h2>Encontre o seu caminho.</h2>
+                <p>O Jila adapta-se ao seu papel — seja família, vendedor ou organização.</p>
+            </div>
+
+            <div class="segments-grid stagger">
+                <div class="segment-card">
+                    <div class="segment-emoji">🏠</div>
+                    <h3>Famílias</h3>
+                    <p class="segment-desc">Saiba quanto tempo a sua água vai durar e encomende antes que acabe.</p>
+                    <ul class="segment-benefits">
+                        <li>Visualização do reservatório com dias restantes</li>
+                        <li>Alertas quando o nível está baixo</li>
+                        <li>Marketplace para encomendar água</li>
+                        <li>Funciona com leitura manual ou sensor</li>
+                    </ul>
+                    <a href="#" class="btn-primary">Começar a monitorizar</a>
+                </div>
+
+                <div class="segment-card">
+                    <div class="segment-emoji">🚚</div>
+                    <h3>Vendedores</h3>
+                    <p class="segment-desc">Receba encomendas, defina os seus preços e reduza viagens em vão.</p>
+                    <ul class="segment-benefits">
+                        <li>Painel de disponibilidade on/off</li>
+                        <li>Notificações de encomendas em tempo real</li>
+                        <li>Preços definidos por si, por escalão de volume</li>
+                        <li>Histórico de entregas e avaliações</li>
+                    </ul>
+                    <a href="#" class="btn-primary">Tornar-me vendedor</a>
+                </div>
+
+                <div class="segment-card">
+                    <div class="segment-emoji">🏢</div>
+                    <h3>Organizações</h3>
+                    <p class="segment-desc">Visão unificada de todos os seus locais. Dados exportáveis para relatórios.
+                    </p>
+                    <ul class="segment-benefits">
+                        <li>Painel multi-local com indicadores de risco</li>
+                        <li>Leituras auditáveis com registo de operador</li>
+                        <li>Exportações CSV, PDF e HTML</li>
+                        <li>Gestão de equipas e permissões</li>
+                    </ul>
+                    <a href="#demo" class="btn-primary">Pedir demonstração</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+     TRUST PRINCIPLES
+     ============================================ -->
+    <section class="section-trust" id="confianca">
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="section-label">
+                    <span class="label">Princípios de confiança</span>
+                </div>
+                <h2>Honestidade radical.</h2>
+                <p>Num mercado onde as pessoas já foram desiludidas por promessas vagas, o Jila lidera pela
+                    transparência.</p>
+            </div>
+
+            <div class="trust-grid stagger">
+                <div class="trust-item">
+                    <div class="trust-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Mostramos quando os dados são antigos.</h4>
+                        <p>Cada leitura tem um timestamp de "última atualização." Se os dados são velhos, a interface
+                            diz-lo — visualmente e em texto.</p>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Distinguimos manual de sensor.</h4>
+                        <p>Uma leitura manual e uma de sensor ultrassónico têm níveis de confiança diferentes. A
+                            interface torna isso claro.</p>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 16v-4" />
+                            <path d="M12 8h.01" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Dizemos "não sabemos" quando não sabemos.</h4>
+                        <p>Se a estimativa tem confiança baixa, mostramos um intervalo (~1–2 dias) em vez de um valor
+                            falso. Nunca fabricamos certeza.</p>
+                    </div>
+                </div>
+
+                <div class="trust-item">
+                    <div class="trust-item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Privacidade por defeito.</h4>
+                        <p>Os seus dados são seus. Ações claras, estados claros. Sem partilha sem consentimento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trust-wont-do fade-up">
+                <h4>O que nunca fazemos</h4>
+                <div class="trust-wont-list">
+                    <span class="trust-wont-tag">Sem urgência falsa</span>
+                    <span class="trust-wont-tag">Sem custos escondidos</span>
+                    <span class="trust-wont-tag">Sem contagens regressivas</span>
+                    <span class="trust-wont-tag">Sem "só restam 2 vendedores!"</span>
+                    <span class="trust-wont-tag">Sem dark patterns</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+     CREDIBILITY
+     ============================================ -->
+    <section class="section-credibility" id="credibilidade">
+        <div class="container">
+            <div class="credibility-label fade-up">
+                <span class="label">Apoiado por</span>
+            </div>
+
+            <div class="logos-row fade-up">
+                <a href="#" class="logo-item">
+                    <div class="logo-box"><span>Microsoft for Startups</span></div>
+                </a>
+                <a href="#" class="logo-item">
+                    <div class="logo-box"><span>Google for Startups</span></div>
+                </a>
+                <a href="#" class="logo-item">
+                    <div class="logo-box"><span>AWS Activate</span></div>
+                </a>
+                <a href="#" class="logo-item">
+                    <div class="logo-box"><span>Web Summit</span></div>
+                </a>
+            </div>
+
+            <div class="fade-up">
+                <span class="earthshot-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                    </svg>
+                    Nomeado para o Earthshot Prize
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+     PRICING
+     ============================================ -->
+    <section class="section-pricing" id="precos">
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="section-label">
+                    <span class="label">Planos</span>
+                </div>
+                <h2>Comece de graça. Escale quando precisar.</h2>
+                <p>Sem compromisso. Sem pagamento online. Preços transparentes.</p>
+            </div>
+
+            <div class="pricing-grid stagger">
+                <div class="pricing-card">
+                    <div class="pricing-tier">Monitor</div>
+                    <h3>Monitorizar</h3>
+                    <div class="pricing-price">Grátis</div>
+                    <div class="pricing-best">Ideal para famílias com 1 reservatório</div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            1 reservatório
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Leitura manual
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Dias restantes estimados
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Acesso ao marketplace
+                        </li>
+                    </ul>
+                    <a href="#" class="btn-secondary">Começar grátis</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-tier">Protect</div>
+                    <h3>Proteger</h3>
+                    <div class="pricing-price">Preço a confirmar</div>
+                    <div class="pricing-best">Ideal para famílias com sensor e vários reservatórios</div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Até 5 reservatórios
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Monitorização automática com sensor
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Alertas de nível baixo
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Histórico de consumo
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Encomendas prioritárias
+                        </li>
+                    </ul>
+                    <a href="#contacto" class="btn-primary">Contactar para preço</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-tier">Pro</div>
+                    <h3>Organizações</h3>
+                    <div class="pricing-price">Preço a confirmar</div>
+                    <div class="pricing-best">Ideal para ONGs, empresas e gestores de infraestrutura</div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Locais e reservatórios ilimitados
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Portal web de gestão
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Exportações CSV, PDF e HTML
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Gestão de equipas e permissões
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Leituras auditáveis
+                        </li>
+                    </ul>
+                    <a href="#demo" class="btn-secondary">Pedir demonstração</a>
+                </div>
+            </div>
+
+            <!-- Device bundle -->
+            <div class="device-section fade-up">
+                <div class="device-illustration">
+                    <svg viewBox="0 0 120 120" fill="none" width="120" height="120">
+                        <!-- Sensor device illustration -->
+                        <rect x="30" y="20" width="60" height="80" rx="6" stroke="rgba(255,255,255,0.2)"
+                            stroke-width="1.5" />
+                        <rect x="30" y="20" width="60" height="80" rx="6" fill="rgba(255,255,255,0.03)" />
+                        <circle cx="60" cy="50" r="12" stroke="rgba(60,192,216,0.5)" stroke-width="1.5" />
+                        <circle cx="60" cy="50" r="4" fill="rgba(60,192,216,0.3)" />
+                        <!-- Waves -->
+                        <path d="M48 50 C48 42 72 42 72 50" stroke="rgba(60,192,216,0.2)" stroke-width="1"
+                            fill="none" />
+                        <path d="M44 50 C44 38 76 38 76 50" stroke="rgba(60,192,216,0.15)" stroke-width="1"
+                            fill="none" />
+                        <!-- LED -->
+                        <circle cx="60" cy="76" r="3" fill="rgba(46,139,87,0.5)" />
+                        <!-- Bracket -->
+                        <line x1="20" y1="30" x2="30" y2="30" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+                        <line x1="20" y1="30" x2="20" y2="90" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+                        <line x1="20" y1="90" x2="30" y2="90" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+                        <!-- Solar panel hint -->
+                        <rect x="40" y="10" width="40" height="6" rx="2" stroke="rgba(255,255,255,0.12)"
+                            stroke-width="1" fill="rgba(60,192,216,0.05)" />
+                        <line x1="50" y1="10" x2="50" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.5" />
+                        <line x1="60" y1="10" x2="60" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.5" />
+                        <line x1="70" y1="10" x2="70" y2="16" stroke="rgba(255,255,255,0.08)" stroke-width="0.5" />
+                    </svg>
+                </div>
+
+                <div class="device-info">
+                    <span class="label" style="margin-bottom: 8px; display: block;">Dispositivo Jila</span>
+                    <h3>Sensor de medição de água</h3>
+                    <div class="device-price">A partir de 150 000 Kz <small>/ unidade</small></div>
+
+                    <ul class="device-details">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Sensor ultrassónico incluído
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Opções solar e rede elétrica
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Conectividade celular
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Instalação assistida
+                        </li>
+                    </ul>
+
+                    <div class="device-notice">
+                        <strong>Sem pagamento online.</strong> Após reservar, contactamo-lo com o prazo de entrega.
+                        Pagamento na entrega.
+                    </div>
+
+                    <div style="margin-bottom: var(--space-md);">
+                        <span class="label" style="margin-bottom: 8px; display: block;">Opção 30/70 — Experimentar antes
+                            de comprar</span>
+                    </div>
+                    <div class="trial-steps">
+                        <div class="trial-step">
+                            <span class="step-num">1</span>
+                            Reserve com 30% do valor
+                        </div>
+                        <div class="trial-step">
+                            <span class="step-num">2</span>
+                            Teste durante 14 dias
+                        </div>
+                        <div class="trial-step">
+                            <span class="step-num">3</span>
+                            Pague o resto ou devolva
+                        </div>
+                    </div>
+
+                    <div style="margin-top: var(--space-lg);">
+                        <a href="#contacto" class="btn-primary">Reservar dispositivo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+     CONTACT / LEAD CAPTURE
+     ============================================ -->
+    <section class="section-contact" id="contacto">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-text fade-up">
+                    <h2>Vamos conversar.</h2>
+                    <p>Seja família, vendedor ou organização — estamos prontos para ouvir o seu caso e partilhar os
+                        próximos passos.</p>
+
+                    <ul class="contact-steps">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Respondemos dentro de 24–48 horas.
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Confirmamos o seu caso de uso.
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Partilhamos os próximos passos.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-form fade-up" id="demo">
+                    <div class="contact-methods">
+                        <button class="contact-method-btn active" onclick="setContactMethod(this, 'whatsapp')">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                            WhatsApp
+                        </button>
+                        <button class="contact-method-btn" onclick="setContactMethod(this, 'email')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            Email
+                        </button>
+                        <button class="contact-method-btn" onclick="setContactMethod(this, 'phone')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            Telefone
+                        </button>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" placeholder="O seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">WhatsApp / Contacto</label>
+                            <input type="text" id="contact" placeholder="+244 9XX XXX XXX">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Sou...</label>
+                        <select id="role">
+                            <option value="">Escolha uma opção</option>
+                            <option value="household">Família / Consumidor</option>
+                            <option value="seller">Vendedor de água</option>
+                            <option value="org">Organização / Empresa</option>
+                            <option value="funder">Financiador / Parceiro</option>
+                            <option value="other">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mensagem (opcional)</label>
+                        <textarea id="message" placeholder="Descreva brevemente o seu caso de uso..."></textarea>
+                    </div>
+
+                    <button class="btn-whatsapp" onclick="handleSubmit()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        Enviar via WhatsApp
+                    </button>
+
+                    <p
+                        style="text-align: center; margin-top: var(--space-md); font-size: 0.75rem; color: rgba(255,255,255,0.3);">
+                        Ou agende uma chamada — <a href="#" style="color: var(--teal-light);">ver disponibilidade</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+     FOOTER
+     ============================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+                        <rect width="28" height="28" rx="7" fill="rgba(255,255,255,0.1)" />
+                        <path d="M8 20V8h2.5v10h5V8H18v12" stroke="rgba(60,192,216,0.6)" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Jila
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#">Termos</a></li>
+                    <li><a href="#">Privacidade</a></li>
+                    <li><a href="#">Documentação</a></li>
+                </ul>
+                <span class="footer-copy">© 2026 Jila. Luanda, Angola.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+     SCRIPTS
+     ============================================ -->
+    <script>
+        // Nav scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 10);
+        });
+
+        // Close mobile nav on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+
+        // Intersection Observer for fade-up animations
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+            document.querySelectorAll('.fade-up, .stagger').forEach(el => observer.observe(el));
+        }
+
+        // Mode toggle (Manual / Sensor)
+        function setMode(btn) {
+            btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        // Contact method toggle
+        function setContactMethod(btn, method) {
+            document.querySelectorAll('.contact-method-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const submitBtn = document.querySelector('.btn-whatsapp');
+            if (method === 'whatsapp') {
+                submitBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Enviar via WhatsApp`;
+                submitBtn.style.background = '#25D366';
+            } else if (method === 'email') {
+                submitBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Enviar por email`;
+                submitBtn.style.background = 'var(--teal-primary)';
+            } else {
+                submitBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Ligar agora`;
+                submitBtn.style.background = 'var(--blue-trust)';
+            }
+        }
+
+        // Form submit handler
+        function handleSubmit() {
+            const name = document.getElementById('name').value;
+            const contact = document.getElementById('contact').value;
+            const role = document.getElementById('role').value;
+            const message = document.getElementById('message').value;
+
+            const activeMethod = document.querySelector('.contact-method-btn.active');
+            const method = activeMethod ? activeMethod.textContent.trim().toLowerCase() : 'whatsapp';
+
+            if (method === 'whatsapp') {
+                const text = encodeURIComponent(
+                    `Olá, sou ${name || '[nome]'}.\n` +
+                    `Perfil: ${role || 'não especificado'}\n` +
+                    (message ? `Mensagem: ${message}\n` : '') +
+                    `Contacto: ${contact || '[contacto]'}`
+                );
+                window.open(`https://wa.me/244923000000?text=${text}`, '_blank');
+            } else {
+                alert('Mensagem registada. Entraremos em contacto dentro de 24–48 horas.');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
