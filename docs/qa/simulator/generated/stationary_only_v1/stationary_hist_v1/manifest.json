@@ -1,0 +1,36 @@
+{
+  "artifact_schema": "telemetry_csv_v1",
+  "csv_filename": "telemetry_rows.csv",
+  "csv_sha256": "5d5bf978f6b572c19e907ed0d7ff9b6ab50d657b67bb6dd4c2870dc0e5e7d091",
+  "end_at_utc": "2026-02-12T10:00:00Z",
+  "per_device_counts": {
+    "E2E2024STATA1": 8641,
+    "E2E2024STATC1": 8641
+  },
+  "per_device_seq_ranges": {
+    "E2E2024STATA1": {
+      "max": 10402,
+      "min": 1762
+    },
+    "E2E2024STATC1": {
+      "max": 10402,
+      "min": 1762
+    }
+  },
+  "row_count": 17282,
+  "run_id": "stationary_hist_v1",
+  "scenario_hash_sha256": "877490bb05e116d0a1f0a68021cdeb5320d10a7a210fe2426bef2c4e8f5e59c3",
+  "scenario_id": "stationary_only_v1",
+  "scenario_path": "docs/qa/simulator/scenarios/stationary_only_v1.yaml",
+  "seed": 20260212,
+  "start_at_utc": "2026-01-13T10:00:00Z",
+  "starting_seq_by_device": {
+    "E2E2024STATA1": 1761,
+    "E2E2024STATC1": 1761
+  },
+  "terminal_seq_by_device": {
+    "E2E2024STATA1": 10402,
+    "E2E2024STATC1": 10402
+  },
+  "timezone": "UTC"
+}

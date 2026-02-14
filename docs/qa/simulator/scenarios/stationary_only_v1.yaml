@@ -1,0 +1,48 @@
+scenario_id: stationary_only_v1
+seed: 20260212
+timezone: UTC
+speedup_factor: 10.0
+mqtt:
+  host: null
+  port: 8883
+  cert_path: null
+  key_path: null
+bootstrap:
+  days: 30
+  step_minutes: 5
+  drain_analytics: true
+devices:
+  - device_id: E2E2024STATA1
+    archetype: stationary_archetype_a
+    mode: STATIONARY
+    cadence_seconds: 300
+    dynamics:
+      demand:
+        target_daily_liters: 980.0
+        hourly_weights: [0.6, 0.5, 0.5, 0.5, 0.6, 0.8, 1.2, 1.4, 1.3, 1.0, 0.9, 0.9, 1.0, 1.0, 1.0, 1.0, 1.1, 1.3, 1.4, 1.3, 1.0, 0.9, 0.7, 0.6]
+        weekday_multipliers: [1.0, 1.0, 1.0, 1.0, 1.05, 1.1, 0.95]
+      supply:
+        hourly_probability_multipliers: [0.8, 0.75, 0.7, 0.65, 0.7, 0.85, 1.0, 1.2, 1.25, 1.1, 1.0, 0.95, 0.9, 0.95, 1.0, 1.05, 1.1, 1.2, 1.3, 1.2, 1.05, 0.95, 0.9, 0.85]
+        hourly_volume_multipliers: [0.8, 0.75, 0.7, 0.7, 0.75, 0.9, 1.0, 1.15, 1.2, 1.1, 1.0, 0.95, 0.9, 0.95, 1.0, 1.05, 1.1, 1.2, 1.25, 1.2, 1.0, 0.9, 0.85, 0.8]
+        weekday_probability_multipliers: [1.0, 1.0, 1.0, 1.0, 1.0, 0.95, 0.95]
+    parameter_overrides:
+      initial_volume_ratio: 0.80
+  - device_id: E2E2024STATC1
+    archetype: stationary_archetype_c
+    mode: STATIONARY
+    cadence_seconds: 300
+    dynamics:
+      demand:
+        target_daily_liters: 620.0
+        hourly_weights: [0.5, 0.45, 0.4, 0.38, 0.42, 0.6, 0.9, 1.2, 1.1, 0.9, 0.75, 0.7, 0.72, 0.75, 0.7, 0.72, 0.9, 1.1, 1.2, 1.1, 0.85, 0.7, 0.58, 0.5]
+        weekday_multipliers: [1.0, 0.98, 1.0, 0.99, 1.02, 1.08, 1.04]
+      supply:
+        hourly_probability_multipliers: [0.3, 0.25, 0.2, 0.2, 0.25, 0.4, 0.55, 0.8, 0.65, 0.4, 0.25, 0.2, 0.25, 0.3, 0.25, 0.2, 0.35, 0.6, 0.85, 0.7, 0.35, 0.25, 0.2, 0.2]
+        hourly_volume_multipliers: [0.6, 0.55, 0.5, 0.5, 0.55, 0.7, 0.9, 1.1, 1.0, 0.75, 0.55, 0.5, 0.55, 0.6, 0.55, 0.5, 0.7, 0.95, 1.2, 1.0, 0.7, 0.55, 0.5, 0.5]
+        weekday_probability_multipliers: [1.0, 0.95, 1.0, 0.9, 1.0, 1.15, 1.1]
+    parameter_overrides:
+      initial_volume_ratio: 0.42
+routes: []
+# Target tendencies:
+# - stationary_archetype_a: lower runout_prob, higher autonomy_days_est
+# - stationary_archetype_c: higher supply_fragmentation_index
