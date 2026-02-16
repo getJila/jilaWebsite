@@ -1123,14 +1123,20 @@
         }
 
         .cases-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: var(--space-lg);
         }
 
+        .cases-grid .case-card {
+            flex: 0 1 calc((100% - 2 * var(--space-lg)) / 3);
+            min-width: 280px;
+        }
+
         @media (max-width: 768px) {
-            .cases-grid {
-                grid-template-columns: 1fr;
+            .cases-grid .case-card {
+                flex: 1 1 100%;
             }
         }
 
@@ -1203,6 +1209,18 @@
             background: rgba(46, 139, 87, 0.2);
             color: #5BC88A;
             border: 1px solid rgba(46, 139, 87, 0.3);
+        }
+
+        .case-tag--utility {
+            background: rgba(99, 102, 241, 0.2);
+            color: #A5B4FC;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .case-tag--fleet {
+            background: rgba(234, 179, 8, 0.2);
+            color: #FCD34D;
+            border: 1px solid rgba(234, 179, 8, 0.3);
         }
 
         .case-tag .material-symbols-outlined {
@@ -2349,6 +2367,32 @@
                         </span>
                         <h3>Hóspedes surpreendidos com água sempre disponível</h3>
                         <p>Uma casa de hóspedes no Luena deixou de ter falhas de água. Os clientes mais regulares notaram a diferença — e ficaram impressionados.</p>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <img class="case-card-img" src="https://images.unsplash.com/photo-1504297050568-910d24c426d3?w=600&h=800&fit=crop" alt="Reservatórios de distribuição" loading="lazy">
+                    <div class="case-card-overlay"></div>
+                    <div class="case-card-content">
+                        <span class="case-tag case-tag--utility">
+                            <span class="material-symbols-outlined">water_drop</span>
+                            Utilidade · Nairobi
+                        </span>
+                        <h3>Monitorização proactiva de reservatórios de distribuição</h3>
+                        <p>Uma empresa de água no Quénia passou de reactiva a proactiva — reabastecendo tanques elevados a tempo, sem inspeções nocturnas perigosas, e eliminando queixas de clientes.</p>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <img class="case-card-img" src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=600&h=800&fit=crop" alt="Frota de cisternas" loading="lazy">
+                    <div class="case-card-overlay"></div>
+                    <div class="case-card-content">
+                        <span class="case-tag case-tag--fleet">
+                            <span class="material-symbols-outlined">local_shipping</span>
+                            Frota · Luanda
+                        </span>
+                        <h3>Rotas optimizadas com dados de procura</h3>
+                        <p>Um dono de cisterna em Luanda visualiza rotas e zonas de maior procura no painel Jila — posicionando o veículo mais perto dos clientes e reduzindo tempo entre entregas.</p>
                     </div>
                 </div>
             </div>
