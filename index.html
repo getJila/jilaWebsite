@@ -12,7 +12,8 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Jila — Saiba quantos dias de água ainda tem">
-    <meta property="og:description" content="Monitorize o seu reservatório, saiba a sua autonomia e chame a cisterna antes da água acabar. 600+ pontos de água verificados em Luanda.">
+    <meta property="og:description"
+        content="Monitorize o seu reservatório, saiba a sua autonomia e chame a cisterna antes da água acabar. 600+ pontos de água verificados em Luanda.">
     <meta property="og:url" content="https://jila.ao">
     <meta property="og:locale" content="pt_AO">
     <meta property="og:site_name" content="Jila">
@@ -20,7 +21,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Jila — Saiba quantos dias de água ainda tem">
-    <meta name="twitter:description" content="Monitorize o seu reservatório, saiba a sua autonomia e chame a cisterna antes da água acabar.">
+    <meta name="twitter:description"
+        content="Monitorize o seu reservatório, saiba a sua autonomia e chame a cisterna antes da água acabar.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -1947,6 +1949,195 @@
         }
 
         /* ============================================
+   SECTION: UPDATES / NEWS
+   ============================================ */
+
+        .section-updates {
+            background: var(--white);
+        }
+
+        .updates-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        @media (max-width: 768px) {
+            .updates-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .update-card {
+            padding: var(--space-xl);
+            background: var(--grey-50);
+            border: 1px solid var(--grey-100);
+            border-radius: 12px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .update-card:hover {
+            border-color: var(--grey-200);
+            box-shadow: 0 4px 16px rgba(11, 26, 46, 0.04);
+        }
+
+        .update-card-date {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--grey-400);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .update-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .update-card p {
+            color: var(--grey-600);
+            font-size: 0.9375rem;
+            line-height: 1.65;
+        }
+
+        .update-card-tag {
+            display: inline-block;
+            margin-top: var(--space-md);
+            padding: 4px 12px;
+            background: var(--teal-ghost);
+            color: var(--blue-trust);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* ============================================
+   SECTION: EVENTS
+   ============================================ */
+
+        .section-events {
+            background: var(--grey-50);
+            border-top: 1px solid var(--grey-100);
+            border-bottom: 1px solid var(--grey-100);
+        }
+
+        .events-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .event-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-lg);
+            padding: var(--space-xl);
+            background: var(--white);
+            border: 1px solid var(--grey-100);
+            border-radius: 12px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .event-item:hover {
+            border-color: var(--grey-200);
+            box-shadow: 0 4px 16px rgba(11, 26, 46, 0.04);
+        }
+
+        .event-item.event-past {
+            opacity: 0.65;
+        }
+
+        .event-date-block {
+            flex-shrink: 0;
+            width: 64px;
+            text-align: center;
+            padding: var(--space-sm) 0;
+        }
+
+        .event-date-month {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--teal-primary);
+        }
+
+        .event-date-day {
+            font-size: 1.75rem;
+            font-weight: 600;
+            line-height: 1.1;
+            color: var(--midnight);
+        }
+
+        .event-date-year {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            color: var(--grey-400);
+        }
+
+        .event-details h4 {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .event-details p {
+            color: var(--grey-600);
+            font-size: 0.9375rem;
+            line-height: 1.55;
+        }
+
+        .event-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+            font-size: 0.8125rem;
+            color: var(--grey-400);
+        }
+
+        .event-meta .material-symbols-outlined {
+            font-size: 16px;
+        }
+
+        .event-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 100px;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .event-badge-upcoming {
+            background: var(--teal-ghost);
+            color: var(--blue-trust);
+        }
+
+        .event-badge-past {
+            background: var(--grey-100);
+            color: var(--grey-400);
+        }
+
+        @media (max-width: 768px) {
+            .event-item {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .event-date-block {
+                text-align: left;
+                display: flex;
+                gap: var(--space-sm);
+                align-items: baseline;
+                width: auto;
+            }
+        }
+
+        /* ============================================
    UTILITY
    ============================================ */
         .text-center {
@@ -1976,10 +2167,12 @@
                 Jila
             </a>
             <ul class="nav-links" id="navLinks">
+                <li><a href="#novidades">Novidades</a></li>
                 <li><a href="#como-funciona">Como funciona</a></li>
                 <li><a href="#para-quem">Para quem</a></li>
                 <li><a href="#casos">Casos de uso</a></li>
                 <li><a href="#precos">Preços</a></li>
+                <li><a href="#eventos">Eventos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
                 <li><a href="#demo" class="nav-cta">Pedir demonstração</a></li>
             </ul>
@@ -2113,6 +2306,44 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+     UPDATES / NEWS
+     ============================================ -->
+    <section class="section-updates" id="novidades">
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="section-label">
+                    <span class="label">Novidades</span>
+                </div>
+                <h2>Últimas actualizações</h2>
+                <p>O que temos feito e para onde vamos a seguir.</p>
+            </div>
+
+            <div class="updates-grid stagger">
+                <div class="update-card">
+                    <div class="update-card-date">Fev 2026</div>
+                    <h3>Jila nomeada para o Earthshot Prize</h3>
+                    <p>A nossa plataforma de monitorização de água foi reconhecida entre as soluções mais promissoras para o acesso sustentável à água.</p>
+                    <span class="update-card-tag">Reconhecimento</span>
+                </div>
+
+                <div class="update-card">
+                    <div class="update-card-date">Jan 2026</div>
+                    <h3>600+ pontos de água verificados em Luanda</h3>
+                    <p>Alcançámos um novo marco na cobertura de pontos de água monitorizados na cidade de Luanda.</p>
+                    <span class="update-card-tag">Marco</span>
+                </div>
+
+                <div class="update-card">
+                    <div class="update-card-date">Dez 2025</div>
+                    <h3>Parceria com Microsoft for Startups</h3>
+                    <p>Fomos seleccionados para o programa Microsoft for Startups, reforçando a nossa infra-estrutura cloud.</p>
+                    <span class="update-card-tag">Parceria</span>
                 </div>
             </div>
         </div>
@@ -2415,7 +2646,8 @@
         <div class="container">
             <div class="section-header fade-up">
                 <div class="section-label">
-                    <span class="label" style="color: var(--teal-light); border-color: rgba(42,157,181,0.3);">Casos de uso</span>
+                    <span class="label" style="color: var(--teal-light); border-color: rgba(42,157,181,0.3);">Casos de
+                        uso</span>
                 </div>
                 <h2>Resultados reais, clientes reais.</h2>
                 <p>Diferentes contextos, o mesmo impacto: nunca mais ficar sem água de surpresa.</p>
@@ -2424,82 +2656,102 @@
             <div class="cases-carousel fade-up">
                 <div class="cases-grid" id="casesGrid">
                     <div class="case-card">
-                    <img class="case-card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop" alt="Reservatórios residenciais" loading="lazy">
-                    <div class="case-card-overlay"></div>
-                    <div class="case-card-content">
-                        <span class="case-tag case-tag--residential">
-                            <span class="material-symbols-outlined">home</span>
-                            Residencial · Camama, Angola
-                        </span>
-                        <h3>Redução drástica de dias sem água</h3>
-                        <p>Um cliente residencial com polytanks viu uma redução significativa nas vezes em que ficou sem água — graças aos alertas antecipados do Jila.</p>
+                        <img class="case-card-img"
+                            src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop"
+                            alt="Reservatórios residenciais" loading="lazy">
+                        <div class="case-card-overlay"></div>
+                        <div class="case-card-content">
+                            <span class="case-tag case-tag--residential">
+                                <span class="material-symbols-outlined">home</span>
+                                Residencial · Camama, Angola
+                            </span>
+                            <h3>Redução drástica de dias sem água</h3>
+                            <p>Um cliente residencial com polytanks viu uma redução significativa nas vezes em que ficou
+                                sem água — graças aos alertas antecipados do Jila.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="case-card">
-                    <img class="case-card-img" src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&h=800&fit=crop" alt="Instalação industrial" loading="lazy">
-                    <div class="case-card-overlay"></div>
-                    <div class="case-card-content">
-                        <span class="case-tag case-tag--industrial">
-                            <span class="material-symbols-outlined">factory</span>
-                            Industrial · Zango, Angola
-                        </span>
-                        <h3>Planeamento inteligente de cisternas</h3>
-                        <p>Uma destilaria numa zona com fornecimento irregular usa o Jila para planear encomendas de água a tempo — incluindo avisos antes de ficar em risco.</p>
+                    <div class="case-card">
+                        <img class="case-card-img"
+                            src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&h=800&fit=crop"
+                            alt="Instalação industrial" loading="lazy">
+                        <div class="case-card-overlay"></div>
+                        <div class="case-card-content">
+                            <span class="case-tag case-tag--industrial">
+                                <span class="material-symbols-outlined">factory</span>
+                                Industrial · Zango, Angola
+                            </span>
+                            <h3>Planeamento inteligente de cisternas</h3>
+                            <p>Uma destilaria numa zona com fornecimento irregular usa o Jila para planear encomendas de
+                                água a tempo — incluindo avisos antes de ficar em risco.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="case-card">
-                    <img class="case-card-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=800&fit=crop" alt="Casa de hóspedes" loading="lazy">
-                    <div class="case-card-overlay"></div>
-                    <div class="case-card-content">
-                        <span class="case-tag case-tag--hospitality">
-                            <span class="material-symbols-outlined">hotel</span>
-                            Hotelaria · Luena, Angola
-                        </span>
-                        <h3>Hóspedes surpreendidos com água sempre disponível</h3>
-                        <p>Uma casa de hóspedes no Luena deixou de ter falhas de água. Os clientes mais regulares notaram a diferença — e ficaram impressionados.</p>
+                    <div class="case-card">
+                        <img class="case-card-img"
+                            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=800&fit=crop"
+                            alt="Casa de hóspedes" loading="lazy">
+                        <div class="case-card-overlay"></div>
+                        <div class="case-card-content">
+                            <span class="case-tag case-tag--hospitality">
+                                <span class="material-symbols-outlined">hotel</span>
+                                Hotelaria · Luena, Angola
+                            </span>
+                            <h3>Hóspedes surpreendidos com água sempre disponível</h3>
+                            <p>Uma casa de hóspedes no Luena deixou de ter falhas de água. Os clientes mais regulares
+                                notaram a diferença — e ficaram impressionados.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="case-card">
-                    <img class="case-card-img" src="https://images.unsplash.com/photo-1504297050568-910d24c426d3?w=600&h=800&fit=crop" alt="Reservatórios de distribuição" loading="lazy">
-                    <div class="case-card-overlay"></div>
-                    <div class="case-card-content">
-                        <span class="case-tag case-tag--utility">
-                            <span class="material-symbols-outlined">water_drop</span>
-                            Utilidade · Nairobi, Quénia
-                        </span>
-                        <h3>Monitorização proactiva de reservatórios de distribuição</h3>
-                        <p>Uma empresa de água no Quénia passou de reactiva a proactiva — reabastecendo tanques elevados a tempo, sem inspeções nocturnas perigosas, e eliminando queixas de clientes.</p>
+                    <div class="case-card">
+                        <img class="case-card-img"
+                            src="https://images.unsplash.com/photo-1504297050568-910d24c426d3?w=600&h=800&fit=crop"
+                            alt="Reservatórios de distribuição" loading="lazy">
+                        <div class="case-card-overlay"></div>
+                        <div class="case-card-content">
+                            <span class="case-tag case-tag--utility">
+                                <span class="material-symbols-outlined">water_drop</span>
+                                Utilidade · Nairobi, Quénia
+                            </span>
+                            <h3>Monitorização proactiva de reservatórios de distribuição</h3>
+                            <p>Uma empresa de água no Quénia passou de reactiva a proactiva — reabastecendo tanques
+                                elevados a tempo, sem inspeções nocturnas perigosas, e eliminando queixas de clientes.
+                            </p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="case-card">
-                    <img class="case-card-img" src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=600&h=800&fit=crop" alt="Frota de cisternas" loading="lazy">
-                    <div class="case-card-overlay"></div>
-                    <div class="case-card-content">
-                        <span class="case-tag case-tag--fleet">
-                            <span class="material-symbols-outlined">local_shipping</span>
-                            Frota · Luanda, Angola
-                        </span>
-                        <h3>Rotas optimizadas com dados de procura</h3>
-                        <p>Um dono de cisterna em Luanda visualiza rotas e zonas de maior procura no painel Jila — posicionando o veículo mais perto dos clientes e reduzindo tempo entre entregas.</p>
+                    <div class="case-card">
+                        <img class="case-card-img"
+                            src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=600&h=800&fit=crop"
+                            alt="Frota de cisternas" loading="lazy">
+                        <div class="case-card-overlay"></div>
+                        <div class="case-card-content">
+                            <span class="case-tag case-tag--fleet">
+                                <span class="material-symbols-outlined">local_shipping</span>
+                                Frota · Luanda, Angola
+                            </span>
+                            <h3>Rotas optimizadas com dados de procura</h3>
+                            <p>Um dono de cisterna em Luanda visualiza rotas e zonas de maior procura no painel Jila —
+                                posicionando o veículo mais perto dos clientes e reduzindo tempo entre entregas.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="case-card">
-                    <img class="case-card-img" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=800&fit=crop" alt="Comunidade e pontos de água" loading="lazy">
-                    <div class="case-card-overlay"></div>
-                    <div class="case-card-content">
-                        <span class="case-tag case-tag--community">
-                            <span class="material-symbols-outlined">groups</span>
-                            Comunidade · Luanda, Angola
-                        </span>
-                        <h3>600+ pontos de água mapeados e abertos a todos</h3>
-                        <p>O maior directório de pontos de água em Luanda — gratuito, com horários, disponibilidade em tempo real e distâncias. Para cidadãos, ONGs e decisores que precisam de dados fiáveis.</p>
+                    <div class="case-card">
+                        <img class="case-card-img"
+                            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=800&fit=crop"
+                            alt="Comunidade e pontos de água" loading="lazy">
+                        <div class="case-card-overlay"></div>
+                        <div class="case-card-content">
+                            <span class="case-tag case-tag--community">
+                                <span class="material-symbols-outlined">groups</span>
+                                Comunidade · Luanda, Angola
+                            </span>
+                            <h3>600+ pontos de água mapeados e abertos a todos</h3>
+                            <p>O maior directório de pontos de água em Luanda — gratuito, com horários, disponibilidade
+                                em tempo real e distâncias. Para cidadãos, ONGs e decisores que precisam de dados
+                                fiáveis.</p>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div class="cases-nav">
                     <button class="cases-nav-btn" id="casesPrev" aria-label="Anterior">
@@ -2738,6 +2990,91 @@
                     <span class="material-symbols-outlined">public</span>
                     Nomeado para o Earthshot Prize
                 </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+     EVENTS
+     ============================================ -->
+    <section class="section-events" id="eventos">
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="section-label">
+                    <span class="label">Eventos</span>
+                </div>
+                <h2>Onde nos pode encontrar</h2>
+                <p>Conferências, feiras e encontros onde partilhamos a nossa missão.</p>
+            </div>
+
+            <div class="events-list stagger">
+                <div class="event-item">
+                    <div class="event-date-block">
+                        <div class="event-date-month">Mar</div>
+                        <div class="event-date-day">15</div>
+                        <div class="event-date-year">2026</div>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-badge event-badge-upcoming">Próximo</span>
+                        <h4>Africa Tech Summit</h4>
+                        <p>Apresentação da plataforma Jila no painel sobre soluções de água para mercados emergentes.</p>
+                        <div class="event-meta">
+                            <span class="material-symbols-outlined">location_on</span>
+                            Nairobi, Quénia
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-date-block">
+                        <div class="event-date-month">Mar</div>
+                        <div class="event-date-day">02</div>
+                        <div class="event-date-year">2026</div>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-badge event-badge-upcoming">Próximo</span>
+                        <h4>Mobile World Congress</h4>
+                        <p>Demonstração da monitorização IoT de reservatórios no pavilhão 4YFN.</p>
+                        <div class="event-meta">
+                            <span class="material-symbols-outlined">location_on</span>
+                            Barcelona, Espanha
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-item event-past">
+                    <div class="event-date-block">
+                        <div class="event-date-month">Nov</div>
+                        <div class="event-date-day">14</div>
+                        <div class="event-date-year">2025</div>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-badge event-badge-past">Passado</span>
+                        <h4>Web Summit</h4>
+                        <p>Participação como startup ALPHA com pitch sobre monitorização inteligente de água.</p>
+                        <div class="event-meta">
+                            <span class="material-symbols-outlined">location_on</span>
+                            Lisboa, Portugal
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-item event-past">
+                    <div class="event-date-block">
+                        <div class="event-date-month">Set</div>
+                        <div class="event-date-day">22</div>
+                        <div class="event-date-year">2025</div>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-badge event-badge-past">Passado</span>
+                        <h4>Angola Innovation Summit</h4>
+                        <p>Workshop sobre IoT aplicado a infra-estruturas de água em Luanda.</p>
+                        <div class="event-meta">
+                            <span class="material-symbols-outlined">location_on</span>
+                            Luanda, Angola
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
