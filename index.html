@@ -2929,7 +2929,7 @@
                     (message ? `Mensagem: ${message}\n` : '') +
                     `Contacto: ${contact || '[contacto]'}`
                 );
-                window.open(`https://wa.me/244923000000?text=${text}`, '_blank');
+                window.open(`https://wa.me/244922314515?text=${text}`, '_blank');
             } else if (method === 'email') {
                 const subject = encodeURIComponent(`Contacto Jila — ${name || 'Novo pedido'}`);
                 const body = encodeURIComponent(
@@ -2938,9 +2938,9 @@
                     `Contacto: ${contact || '[contacto]'}\n\n` +
                     (message || '')
                 );
-                window.location.href = `mailto:info@jila.ao?subject=${subject}&body=${body}`;
+                window.location.href = `mailto:info@jila.ai?subject=${subject}&body=${body}`;
             } else {
-                window.location.href = 'tel:+244923000000';
+                window.location.href = 'tel:+244922314515';
             }
         }
 
