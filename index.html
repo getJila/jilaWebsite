@@ -1124,20 +1124,92 @@
 
         .cases-grid {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
             gap: var(--space-lg);
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding-bottom: var(--space-sm);
+        }
+
+        .cases-grid::-webkit-scrollbar {
+            display: none;
         }
 
         .cases-grid .case-card {
-            flex: 0 1 calc((100% - 2 * var(--space-lg)) / 3);
+            flex: 0 0 calc((100% - 2 * var(--space-lg)) / 3);
+            scroll-snap-align: start;
             min-width: 280px;
+        }
+
+        @media (max-width: 1024px) {
+            .cases-grid .case-card {
+                flex: 0 0 calc((100% - var(--space-lg)) / 2);
+            }
         }
 
         @media (max-width: 768px) {
             .cases-grid .case-card {
-                flex: 1 1 100%;
+                flex: 0 0 100%;
             }
+        }
+
+        .cases-carousel {
+            position: relative;
+        }
+
+        .cases-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        .cases-nav-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .cases-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .cases-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        .cases-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .cases-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .cases-dot.active {
+            background: var(--teal-light);
+            transform: scale(1.25);
         }
 
         .case-card {
@@ -2330,8 +2402,9 @@
                 <p>Diferentes contextos, o mesmo impacto: nunca mais ficar sem água de surpresa.</p>
             </div>
 
-            <div class="cases-grid stagger">
-                <div class="case-card">
+            <div class="cases-carousel fade-up">
+                <div class="cases-grid" id="casesGrid">
+                    <div class="case-card">
                     <img class="case-card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop" alt="Reservatórios residenciais" loading="lazy">
                     <div class="case-card-overlay"></div>
                     <div class="case-card-content">
@@ -2394,6 +2467,16 @@
                         <h3>Rotas optimizadas com dados de procura</h3>
                         <p>Um dono de cisterna em Luanda visualiza rotas e zonas de maior procura no painel Jila — posicionando o veículo mais perto dos clientes e reduzindo tempo entre entregas.</p>
                     </div>
+                </div>
+                </div>
+                <div class="cases-nav">
+                    <button class="cases-nav-btn" id="casesPrev" aria-label="Anterior">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <div class="cases-dots" id="casesDots"></div>
+                    <button class="cases-nav-btn" id="casesNext" aria-label="Seguinte">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -2819,6 +2902,83 @@
                 alert('Mensagem registada. Entraremos em contacto dentro de 24–48 horas.');
             }
         }
+
+        // Cases carousel
+        (() => {
+            const grid = document.getElementById('casesGrid');
+            const prevBtn = document.getElementById('casesPrev');
+            const nextBtn = document.getElementById('casesNext');
+            const dotsContainer = document.getElementById('casesDots');
+            if (!grid) return;
+
+            const cards = grid.querySelectorAll('.case-card');
+            const totalCards = cards.length;
+
+            function getVisibleCount() {
+                if (window.innerWidth <= 768) return 1;
+                if (window.innerWidth <= 1024) return 2;
+                return 3;
+            }
+
+            function getPages() {
+                return Math.max(1, totalCards - getVisibleCount() + 1);
+            }
+
+            let currentPage = 0;
+
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                const pages = getPages();
+                for (let i = 0; i < pages; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'cases-dot' + (i === currentPage ? ' active' : '');
+                    dot.setAttribute('aria-label', `Página ${i + 1}`);
+                    dot.addEventListener('click', () => goTo(i));
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function goTo(page) {
+                const pages = getPages();
+                currentPage = Math.max(0, Math.min(page, pages - 1));
+                const card = cards[currentPage];
+                grid.scrollTo({ left: card.offsetLeft - grid.offsetLeft, behavior: 'smooth' });
+                updateState();
+            }
+
+            function updateState() {
+                const pages = getPages();
+                prevBtn.disabled = currentPage <= 0;
+                nextBtn.disabled = currentPage >= pages - 1;
+                dotsContainer.querySelectorAll('.cases-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === currentPage);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => goTo(currentPage - 1));
+            nextBtn.addEventListener('click', () => goTo(currentPage + 1));
+
+            // Sync dot on manual scroll
+            let scrollTimer;
+            grid.addEventListener('scroll', () => {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(() => {
+                    const scrollLeft = grid.scrollLeft;
+                    let closest = 0;
+                    let minDist = Infinity;
+                    cards.forEach((card, i) => {
+                        const dist = Math.abs(card.offsetLeft - grid.offsetLeft - scrollLeft);
+                        if (dist < minDist) { minDist = dist; closest = i; }
+                    });
+                    currentPage = Math.min(closest, getPages() - 1);
+                    updateState();
+                }, 100);
+            });
+
+            window.addEventListener('resize', () => { buildDots(); updateState(); });
+            buildDots();
+            updateState();
+        })();
     </script>
 
 </body>
