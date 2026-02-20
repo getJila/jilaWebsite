@@ -2027,74 +2027,540 @@
         }
 
         /* ============================================
-   THEME: GLASS V1 (Deep Ocean Immersion)
+   THEME: EDITORIAL (Radical Layout)
    ============================================ */
-        body.theme-glass-v1 {
-            background: var(--midnight-deep);
+        body.theme-editorial {
+            --white: #F9F6F0;
+            --grey-50: #F2EFE9;
+            --grey-100: #E8E4DB;
+            --grey-200: #D1CCC0;
+            --grey-900: #2C302E;
+            --midnight: #1A2520;
+            --midnight-deep: #111815;
+            --teal-primary: #8A5A44;
+            /* Terracotta */
+            --teal-light: #A77B66;
+            --teal-ghost: #F0EBE1;
+            --blue-trust: #2C302E;
+            --font-sans: 'Inter', sans-serif;
+            background: var(--white);
+        }
+
+        body.theme-editorial h1,
+        body.theme-editorial h2,
+        body.theme-editorial h3,
+        body.theme-editorial .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        /* Hero Layout */
+        body.theme-editorial .hero {
+            padding-top: 180px;
+            padding-bottom: 80px;
+            border-bottom: 2px solid var(--midnight);
+        }
+
+        body.theme-editorial .hero-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 4rem;
+        }
+
+        body.theme-editorial .hero-text {
+            max-width: 900px;
+        }
+
+        body.theme-editorial .hero-text h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            line-height: 1.05;
+            margin-bottom: 2rem;
+        }
+
+        body.theme-editorial .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+        }
+
+        body.theme-editorial .hero-ctas {
+            justify-content: center;
+        }
+
+        body.theme-editorial .hero-illustration {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        body.theme-editorial .tank-blueprint {
+            aspect-ratio: 21 / 9;
+            max-width: 100%;
+            border-radius: 0;
+            border: 2px solid var(--midnight);
+            box-shadow: none;
+        }
+
+        /* Sections General */
+        body.theme-editorial section {
+            border-bottom: 2px solid var(--midnight);
+            background: var(--white);
+        }
+
+        body.theme-editorial .section-header {
+            max-width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: end;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--grey-200);
+        }
+
+        body.theme-editorial .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin: 0;
+        }
+
+        body.theme-editorial .section-header p {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            body.theme-editorial .section-header {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        /* Problem Cards -> List */
+        body.theme-editorial .problem-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        body.theme-editorial .problem-card {
+            display: grid;
+            grid-template-columns: 80px 1fr 2fr;
+            gap: 2rem;
+            align-items: start;
+            padding: 3rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--grey-200);
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        body.theme-editorial .problem-card:last-child {
+            border-bottom: none;
+        }
+
+        body.theme-editorial .problem-card-icon {
+            background: transparent;
+            border: 1px solid var(--midnight);
+            border-radius: 50%;
+        }
+
+        body.theme-editorial .problem-card-icon svg {
+            color: var(--midnight);
+        }
+
+        body.theme-editorial .problem-card h3 {
+            font-size: 1.75rem;
+            margin: 0;
+        }
+
+        /* How it works -> Timeline */
+        body.theme-editorial .section-how {
+            background: var(--midnight);
             color: var(--white);
         }
 
-        body.theme-glass-v1 section,
-        body.theme-glass-v1 .hero,
-        body.theme-glass-v1 .section-problem,
-        body.theme-glass-v1 .section-segments,
-        body.theme-glass-v1 .section-pricing,
-        body.theme-glass-v1 .section-updates,
-        body.theme-glass-v1 .section-events,
-        body.theme-glass-v1 .section-credibility {
+        body.theme-editorial .section-how .section-header {
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        body.theme-editorial .section-how h2,
+        body.theme-editorial .section-how .section-header p {
+            color: var(--white);
+        }
+
+        body.theme-editorial .steps-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        body.theme-editorial .step-card {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 3rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0;
+        }
+
+        body.theme-editorial .step-number {
+            font-size: 5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--teal-primary);
+            margin: 0;
+        }
+
+        body.theme-editorial .step-icon {
+            display: none;
+        }
+
+        body.theme-editorial .step-card h4 {
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Segments -> Alternating Rows */
+        body.theme-editorial .segments-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        body.theme-editorial .segment-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 0;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+
+        body.theme-editorial .segment-card:nth-child(even) {
+            direction: rtl;
+        }
+
+        body.theme-editorial .segment-card:nth-child(even)>* {
+            direction: ltr;
+        }
+
+        body.theme-editorial .segment-icon {
+            width: 100%;
+            height: 300px;
+            border-radius: 0;
+            background: var(--grey-100);
+        }
+
+        body.theme-editorial .segment-icon .material-symbols-outlined {
+            font-size: 4rem;
+        }
+
+        body.theme-editorial .segment-card h3 {
+            font-size: 2.5rem;
+        }
+
+        /* Pricing -> Table-like */
+        body.theme-editorial .pricing-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        body.theme-editorial .pricing-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr auto;
+            gap: 2rem;
+            align-items: center;
+            padding: 2rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--grey-200);
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        body.theme-editorial .pricing-card.featured {
+            background: var(--grey-50);
+            padding: 2rem;
+            border: 1px solid var(--midnight);
+        }
+
+        body.theme-editorial .pricing-card.featured::before {
+            display: none;
+        }
+
+        body.theme-editorial .pricing-features {
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            body.theme-editorial .pricing-card {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        /* Buttons */
+        body.theme-editorial .btn-primary,
+        body.theme-editorial .btn-secondary {
+            border-radius: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+        }
+
+        body.theme-editorial .btn-primary {
+            background: var(--midnight);
+        }
+
+        body.theme-editorial .btn-primary:hover {
+            background: var(--teal-primary);
+        }
+        /* ============================================
+   THEME: FLUID (Organic & Floating)
+   ============================================ */
+        body.theme-fluid {
+            background: var(--teal-ghost);
+        }
+        body.theme-fluid .hero {
+            background: var(--teal-ghost);
+        }
+        body.theme-fluid .btn-primary, 
+        body.theme-fluid .btn-secondary,
+        body.theme-fluid .trust-chip {
+            border-radius: 50px;
+        }
+        body.theme-fluid .problem-card, 
+        body.theme-fluid .step-card, 
+        body.theme-fluid .segment-card, 
+        body.theme-fluid .pricing-card,
+        body.theme-fluid .update-card,
+        body.theme-fluid .event-item,
+        body.theme-fluid .contact-form,
+        body.theme-fluid .device-section {
+            border-radius: 40px;
+            border: none;
+            background: var(--white);
+            box-shadow: 0 20px 40px rgba(42, 157, 181, 0.06);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body.theme-fluid .problem-card:hover, 
+        body.theme-fluid .segment-card:hover, 
+        body.theme-fluid .pricing-card:hover,
+        body.theme-fluid .update-card:hover,
+        body.theme-fluid .event-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(42, 157, 181, 0.12);
+        }
+        body.theme-fluid .hero-illustration {
+            animation: float 6s ease-in-out infinite;
+        }
+        body.theme-fluid .tank-blueprint {
+            border-radius: 120px 120px 40px 40px;
+            background: linear-gradient(180deg, var(--navy) 0%, var(--midnight) 100%);
+            border: 4px solid var(--teal-pale);
+        }
+        body.theme-fluid .problem-card-icon,
+        body.theme-fluid .segment-icon,
+        body.theme-fluid .step-icon {
+            border-radius: 50%;
+            background: var(--teal-pale);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        body.theme-fluid .section-how {
+            border-radius: 80px 80px 0 0;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+        body.theme-fluid .section-segments {
+            border-radius: 80px 80px 0 0;
+            margin-top: -40px;
+            position: relative;
+            z-index: 11;
+            background: var(--teal-ghost);
+        }
+        body.theme-fluid .section-pricing {
+            border-radius: 80px 80px 0 0;
+            margin-top: -40px;
+            position: relative;
+            z-index: 12;
+            background: var(--white);
+        }
+
+        /* ============================================
+   THEME: NEO (Brutalist Ocean)
+   ============================================ */
+        body.theme-neo * {
+            border-radius: 0 !important;
+        }
+        body.theme-neo {
+            background: var(--teal-pale);
+            border: 8px solid var(--midnight);
+        }
+        body.theme-neo nav {
+            border-bottom: 4px solid var(--midnight);
+            background: var(--teal-pale);
+        }
+        body.theme-neo .hero {
+            background: var(--teal-pale);
+        }
+        body.theme-neo .btn-primary, 
+        body.theme-neo .btn-secondary,
+        body.theme-neo .problem-card, 
+        body.theme-neo .step-card, 
+        body.theme-neo .segment-card, 
+        body.theme-neo .pricing-card,
+        body.theme-neo .update-card,
+        body.theme-neo .event-item,
+        body.theme-neo .contact-form,
+        body.theme-neo .tank-blueprint,
+        body.theme-neo .device-section {
+            background: var(--white);
+            border: 4px solid var(--midnight);
+            box-shadow: 8px 8px 0px var(--teal-primary);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+        body.theme-neo .btn-primary {
+            background: var(--teal-primary);
+            color: var(--white);
+            box-shadow: 6px 6px 0px var(--midnight);
+        }
+        body.theme-neo .btn-primary:hover, 
+        body.theme-neo .problem-card:hover, 
+        body.theme-neo .segment-card:hover, 
+        body.theme-neo .pricing-card:hover,
+        body.theme-neo .update-card:hover,
+        body.theme-neo .event-item:hover {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px var(--teal-primary);
+        }
+        body.theme-neo .btn-primary:hover {
+            box-shadow: 0px 0px 0px var(--midnight);
+        }
+        body.theme-neo .section-how, 
+        body.theme-neo .section-cases, 
+        body.theme-neo .section-contact, 
+        body.theme-neo footer {
+            background: var(--teal-primary);
+            color: var(--midnight);
+            border-top: 4px solid var(--midnight);
+            border-bottom: 4px solid var(--midnight);
+        }
+        body.theme-neo .section-how h2, 
+        body.theme-neo .section-cases h2, 
+        body.theme-neo .contact-text h2,
+        body.theme-neo .section-how .section-header p,
+        body.theme-neo .section-cases .section-header p,
+        body.theme-neo .contact-text p,
+        body.theme-neo .step-card h4,
+        body.theme-neo .step-card p,
+        body.theme-neo .case-card-content h3,
+        body.theme-neo .case-card-content p,
+        body.theme-neo .footer-logo,
+        body.theme-neo .footer-links a,
+        body.theme-neo .footer-copy {
+            color: var(--midnight);
+        }
+        body.theme-neo .step-number {
+            color: var(--midnight);
+            font-weight: 900;
+        }
+        body.theme-neo .step-icon,
+        body.theme-neo .problem-card-icon,
+        body.theme-neo .segment-icon {
+            background: var(--teal-pale);
+            border: 3px solid var(--midnight);
+            box-shadow: 4px 4px 0px var(--midnight);
+        }
+        body.theme-neo .step-icon svg,
+        body.theme-neo .problem-card-icon svg,
+        body.theme-neo .segment-icon .material-symbols-outlined {
+            color: var(--midnight);
+        }
+        body.theme-neo .trust-chip {
+            border: 2px solid var(--midnight);
+            background: var(--white);
+            color: var(--midnight);
+            box-shadow: 3px 3px 0px var(--teal-primary);
+        }
+        body.theme-neo .tank-data-days,
+        body.theme-neo .tank-data-label,
+        body.theme-neo .tank-meta-item,
+        body.theme-neo .tank-meta-item strong {
+            color: var(--midnight);
+        }
+        body.theme-neo .tank-data-meta {
+            border-top: 3px solid var(--midnight);
+        }
+        body.theme-neo .tank-blueprint svg rect[fill="rgba(255,255,255,0.02)"] {
+            fill: var(--teal-pale);
+        }
+        body.theme-neo .tank-blueprint svg rect[stroke="rgba(255,255,255,0.12)"] {
+            stroke: var(--midnight);
+            stroke-width: 4;
+        }
+
+        /* ============================================
+   THEME: GLASS (Deep Ocean Immersion)
+   ============================================ */
+        body.theme-glass {
+            background: var(--midnight-deep);
+            color: var(--white);
+        }
+        body.theme-glass section,
+        body.theme-glass .hero,
+        body.theme-glass .section-problem,
+        body.theme-glass .section-segments,
+        body.theme-glass .section-pricing,
+        body.theme-glass .section-updates,
+        body.theme-glass .section-events,
+        body.theme-glass .section-credibility {
             background: transparent !important;
             border: none;
         }
-
-        body.theme-glass-v1 h1,
-        body.theme-glass-v1 h2,
-        body.theme-glass-v1 h3,
-        body.theme-glass-v1 h4,
-        body.theme-glass-v1 p,
-        body.theme-glass-v1 .segment-desc,
-        body.theme-glass-v1 .pricing-features li,
-        body.theme-glass-v1 .segment-benefits li,
-        body.theme-glass-v1 .device-details li {
+        body.theme-glass h1, body.theme-glass h2, body.theme-glass h3, body.theme-glass h4, body.theme-glass p, body.theme-glass .segment-desc, body.theme-glass .pricing-features li, body.theme-glass .segment-benefits li, body.theme-glass .device-details li {
             color: var(--white) !important;
         }
-
-        body.theme-glass-v1 .hero::before {
+        body.theme-glass .hero::before {
             background: radial-gradient(circle at 50% 50%, rgba(42, 157, 181, 0.3) 0%, transparent 60%);
             width: 100%;
             right: 0;
             animation: pulseGlow 8s ease-in-out infinite alternate;
         }
-
         @keyframes pulseGlow {
-            0% {
-                opacity: 0.5;
-                transform: scale(0.9);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1.1);
-            }
+            0% { opacity: 0.5; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1.1); }
         }
-
-        body.theme-glass-v1 nav {
+        body.theme-glass nav {
             background: rgba(6, 18, 34, 0.5);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        body.theme-glass-v1 .nav-logo,
-        body.theme-glass-v1 .nav-links a {
+        body.theme-glass .nav-logo, body.theme-glass .nav-links a {
             color: var(--white);
         }
-
-        body.theme-glass-v1 .problem-card,
-        body.theme-glass-v1 .step-card,
-        body.theme-glass-v1 .segment-card,
-        body.theme-glass-v1 .pricing-card,
-        body.theme-glass-v1 .update-card,
-        body.theme-glass-v1 .event-item,
-        body.theme-glass-v1 .contact-form,
-        body.theme-glass-v1 .device-section {
+        body.theme-glass .problem-card, 
+        body.theme-glass .step-card, 
+        body.theme-glass .segment-card, 
+        body.theme-glass .pricing-card,
+        body.theme-glass .update-card,
+        body.theme-glass .event-item,
+        body.theme-glass .contact-form,
+        body.theme-glass .device-section {
             background: rgba(255, 255, 255, 0.03) !important;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -2102,454 +2568,69 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             color: var(--white);
         }
-
-        body.theme-glass-v1 .problem-card:hover,
-        body.theme-glass-v1 .segment-card:hover,
-        body.theme-glass-v1 .pricing-card:hover,
-        body.theme-glass-v1 .update-card:hover,
-        body.theme-glass-v1 .event-item:hover {
+        body.theme-glass .problem-card:hover, 
+        body.theme-glass .segment-card:hover, 
+        body.theme-glass .pricing-card:hover,
+        body.theme-glass .update-card:hover,
+        body.theme-glass .event-item:hover {
             background: rgba(255, 255, 255, 0.08) !important;
             border-color: rgba(60, 192, 216, 0.4) !important;
             box-shadow: 0 8px 32px rgba(60, 192, 216, 0.2);
         }
-
-        body.theme-glass-v1 .btn-secondary {
+        body.theme-glass .btn-secondary {
             color: var(--white);
             border-color: rgba(255, 255, 255, 0.3);
         }
-
-        body.theme-glass-v1 .btn-secondary:hover {
+        body.theme-glass .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.1);
             border-color: var(--white);
         }
-
-        body.theme-glass-v1 .trust-chip {
+        body.theme-glass .trust-chip {
             background: rgba(255, 255, 255, 0.05);
             border-color: rgba(255, 255, 255, 0.1);
             color: var(--teal-light);
         }
-
-        body.theme-glass-v1 .problem-card-icon,
-        body.theme-glass-v1 .segment-icon {
+        body.theme-glass .problem-card-icon,
+        body.theme-glass .segment-icon {
             background: rgba(60, 192, 216, 0.1);
             border: 1px solid rgba(60, 192, 216, 0.2);
         }
-
-        body.theme-glass-v1 .tank-blueprint {
+        body.theme-glass .tank-blueprint {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 40px rgba(60, 192, 216, 0.2);
         }
-
-        body.theme-glass-v1 .pricing-price {
+        body.theme-glass .pricing-price {
             color: var(--teal-light);
         }
-
-        body.theme-glass-v1 .logo-box {
+        body.theme-glass .logo-box {
             background: rgba(255, 255, 255, 0.05);
             border-color: rgba(255, 255, 255, 0.1);
         }
-
-        body.theme-glass-v1 .logo-box span {
+        body.theme-glass .logo-box span {
             color: var(--white);
         }
-
-        body.theme-glass-v1 .event-date-day {
+        body.theme-glass .event-date-day {
             color: var(--white);
         }
-
-        body.theme-glass-v1 .device-price {
+        body.theme-glass .device-price {
             color: var(--teal-light);
-        }
-
-        /* ============================================
-   THEME: GLASS V2 (Carousel Hero)
-   ============================================ */
-        body.theme-glass-v2 {
-            background: var(--midnight-deep);
-            color: var(--white);
-        }
-
-        body.theme-glass-v2 section,
-        body.theme-glass-v2 .hero,
-        body.theme-glass-v2 .section-problem,
-        body.theme-glass-v2 .section-segments,
-        body.theme-glass-v2 .section-pricing,
-        body.theme-glass-v2 .section-updates,
-        body.theme-glass-v2 .section-events,
-        body.theme-glass-v2 .section-credibility {
-            background: transparent !important;
-            border: none;
-        }
-
-        body.theme-glass-v2 h1,
-        body.theme-glass-v2 h2,
-        body.theme-glass-v2 h3,
-        body.theme-glass-v2 h4,
-        body.theme-glass-v2 p,
-        body.theme-glass-v2 .segment-desc,
-        body.theme-glass-v2 .pricing-features li,
-        body.theme-glass-v2 .segment-benefits li,
-        body.theme-glass-v2 .device-details li {
-            color: var(--white) !important;
-        }
-
-        body.theme-glass-v2 .hero::before {
-            background: radial-gradient(circle at 50% 50%, rgba(42, 157, 181, 0.3) 0%, transparent 60%);
-            width: 100%;
-            right: 0;
-            animation: pulseGlow 8s ease-in-out infinite alternate;
-        }
-
-        body.theme-glass-v2 nav {
-            background: rgba(6, 18, 34, 0.5);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        body.theme-glass-v2 .nav-logo,
-        body.theme-glass-v2 .nav-links a {
-            color: var(--white);
-        }
-
-        body.theme-glass-v2 .problem-card,
-        body.theme-glass-v2 .step-card,
-        body.theme-glass-v2 .segment-card,
-        body.theme-glass-v2 .pricing-card,
-        body.theme-glass-v2 .update-card,
-        body.theme-glass-v2 .event-item,
-        body.theme-glass-v2 .contact-form,
-        body.theme-glass-v2 .device-section {
-            background: rgba(255, 255, 255, 0.03) !important;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            color: var(--white);
-        }
-
-        body.theme-glass-v2 .problem-card:hover,
-        body.theme-glass-v2 .segment-card:hover,
-        body.theme-glass-v2 .pricing-card:hover,
-        body.theme-glass-v2 .update-card:hover,
-        body.theme-glass-v2 .event-item:hover {
-            background: rgba(255, 255, 255, 0.08) !important;
-            border-color: rgba(60, 192, 216, 0.4) !important;
-            box-shadow: 0 8px 32px rgba(60, 192, 216, 0.2);
-        }
-
-        body.theme-glass-v2 .btn-secondary {
-            color: var(--white);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        body.theme-glass-v2 .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--white);
-        }
-
-        body.theme-glass-v2 .trust-chip {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.1);
-            color: var(--teal-light);
-        }
-
-        body.theme-glass-v2 .problem-card-icon,
-        body.theme-glass-v2 .segment-icon {
-            background: rgba(60, 192, 216, 0.1);
-            border: 1px solid rgba(60, 192, 216, 0.2);
-        }
-
-        body.theme-glass-v2 .tank-blueprint {
-            display: none;
-            /* Hide original blueprint */
-        }
-
-        body.theme-glass-v2 .pricing-price {
-            color: var(--teal-light);
-        }
-
-        body.theme-glass-v2 .logo-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        body.theme-glass-v2 .logo-box span {
-            color: var(--white);
-        }
-
-        body.theme-glass-v2 .event-date-day {
-            color: var(--white);
-        }
-
-        body.theme-glass-v2 .device-price {
-            color: var(--teal-light);
-        }
-
-        /* V2 Specific Hero Carousel */
-        .hero-carousel-v2 {
-            display: none;
-            width: 100%;
-            max-width: 420px;
-            aspect-ratio: 3 / 4;
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 24px 64px rgba(11, 26, 46, 0.15), 0 0 0 1px rgba(42, 157, 181, 0.1);
-        }
-
-        body.theme-glass-v2 .hero-carousel-v2 {
-            display: block;
-        }
-
-        .carousel-slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-        }
-
-        .carousel-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(6, 18, 34, 0.9) 0%, rgba(6, 18, 34, 0.2) 50%, transparent 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: var(--space-xl);
-        }
-
-        .carousel-nav {
-            position: absolute;
-            bottom: var(--space-md);
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-
-        .carousel-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            border: none;
-            padding: 0;
-        }
-
-        .carousel-dot.active {
-            background: var(--teal-light);
-        }
-
-        /* ============================================
-   THEME: GLASS V3 (Split Screen Hero)
-   ============================================ */
-        body.theme-glass-v3 {
-            background: var(--midnight-deep);
-            color: var(--white);
-        }
-
-        body.theme-glass-v3 section,
-        body.theme-glass-v3 .hero,
-        body.theme-glass-v3 .section-problem,
-        body.theme-glass-v3 .section-segments,
-        body.theme-glass-v3 .section-pricing,
-        body.theme-glass-v3 .section-updates,
-        body.theme-glass-v3 .section-events,
-        body.theme-glass-v3 .section-credibility {
-            background: transparent !important;
-            border: none;
-        }
-
-        body.theme-glass-v3 h1,
-        body.theme-glass-v3 h2,
-        body.theme-glass-v3 h3,
-        body.theme-glass-v3 h4,
-        body.theme-glass-v3 p,
-        body.theme-glass-v3 .segment-desc,
-        body.theme-glass-v3 .pricing-features li,
-        body.theme-glass-v3 .segment-benefits li,
-        body.theme-glass-v3 .device-details li {
-            color: var(--white) !important;
-        }
-
-        body.theme-glass-v3 .hero::before {
-            background: radial-gradient(circle at 50% 50%, rgba(42, 157, 181, 0.3) 0%, transparent 60%);
-            width: 100%;
-            right: 0;
-            animation: pulseGlow 8s ease-in-out infinite alternate;
-        }
-
-        body.theme-glass-v3 nav {
-            background: rgba(6, 18, 34, 0.5);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        body.theme-glass-v3 .nav-logo,
-        body.theme-glass-v3 .nav-links a {
-            color: var(--white);
-        }
-
-        body.theme-glass-v3 .problem-card,
-        body.theme-glass-v3 .step-card,
-        body.theme-glass-v3 .segment-card,
-        body.theme-glass-v3 .pricing-card,
-        body.theme-glass-v3 .update-card,
-        body.theme-glass-v3 .event-item,
-        body.theme-glass-v3 .contact-form,
-        body.theme-glass-v3 .device-section {
-            background: rgba(255, 255, 255, 0.03) !important;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            color: var(--white);
-        }
-
-        body.theme-glass-v3 .problem-card:hover,
-        body.theme-glass-v3 .segment-card:hover,
-        body.theme-glass-v3 .pricing-card:hover,
-        body.theme-glass-v3 .update-card:hover,
-        body.theme-glass-v3 .event-item:hover {
-            background: rgba(255, 255, 255, 0.08) !important;
-            border-color: rgba(60, 192, 216, 0.4) !important;
-            box-shadow: 0 8px 32px rgba(60, 192, 216, 0.2);
-        }
-
-        body.theme-glass-v3 .btn-secondary {
-            color: var(--white);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        body.theme-glass-v3 .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--white);
-        }
-
-        body.theme-glass-v3 .trust-chip {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.1);
-            color: var(--teal-light);
-        }
-
-        body.theme-glass-v3 .problem-card-icon,
-        body.theme-glass-v3 .segment-icon {
-            background: rgba(60, 192, 216, 0.1);
-            border: 1px solid rgba(60, 192, 216, 0.2);
-        }
-
-        body.theme-glass-v3 .tank-blueprint {
-            display: none;
-            /* Hide original blueprint */
-        }
-
-        body.theme-glass-v3 .pricing-price {
-            color: var(--teal-light);
-        }
-
-        body.theme-glass-v3 .logo-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        body.theme-glass-v3 .logo-box span {
-            color: var(--white);
-        }
-
-        body.theme-glass-v3 .event-date-day {
-            color: var(--white);
-        }
-
-        body.theme-glass-v3 .device-price {
-            color: var(--teal-light);
-        }
-
-        /* V3 Specific Hero Carousel */
-        .hero-carousel-v3 {
-            display: none;
-            width: 100%;
-            max-width: 420px;
-            aspect-ratio: 3 / 4;
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 24px 64px rgba(11, 26, 46, 0.15), 0 0 0 1px rgba(42, 157, 181, 0.1);
-        }
-
-        body.theme-glass-v3 .hero-carousel-v3 {
-            display: block;
-        }
-
-        .carousel-slide-v3 {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .carousel-slide-v3.active {
-            opacity: 1;
-        }
-
-        .carousel-image-v3 {
-            flex: 1;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .carousel-content-v3 {
-            height: 40%;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: var(--space-xl);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .carousel-nav-v3 {
-            position: absolute;
-            bottom: var(--space-md);
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-
-        .carousel-dot-v3 {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            border: none;
-            padding: 0;
-        }
-
-        .carousel-dot-v3.active {
-            background: var(--teal-light);
         }
     </style>
 </head>
 
-<body class="theme-glass-v1">
+<body>
 
     <!-- ============================================
      THEME SWITCHER
      ============================================ -->
     <div class="theme-switcher">
-        <button onclick="setTheme('theme-glass-v1')" class="active" id="btn-theme-glass-v1">Glass V1</button>
-        <button onclick="setTheme('theme-glass-v2')" id="btn-theme-glass-v2">Glass V2</button>
-        <button onclick="setTheme('theme-glass-v3')" id="btn-theme-glass-v3">Glass V3</button>
+        <button onclick="setTheme('theme-classic')" class="active" id="btn-theme-classic">Ocean</button>
+        <button onclick="setTheme('theme-editorial')" id="btn-theme-editorial">Editorial</button>
+        <button onclick="setTheme('theme-fluid')" id="btn-theme-fluid">Fluid</button>
+        <button onclick="setTheme('theme-neo')" id="btn-theme-neo">Neo</button>
+        <button onclick="setTheme('theme-glass')" id="btn-theme-glass">Glass</button>
     </div>
 
     <!-- ============================================
@@ -2703,132 +2784,6 @@
                                     Última atualização
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- V2 Carousel -->
-                    <div class="hero-carousel-v2" id="heroCarouselV2">
-                        <div class="carousel-slide active"
-                            style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop');">
-                            <div class="carousel-overlay">
-                                <div class="tank-data-days">3 <small>dias restantes</small></div>
-                                <div class="tank-data-label">Reservatório principal · 5 000 L</div>
-                                <div class="tank-data-meta">
-                                    <div class="tank-meta-item">
-                                        <strong>65 %</strong>
-                                        Nível
-                                    </div>
-                                    <div class="tank-meta-item">
-                                        <strong>3 250 L</strong>
-                                        Volume
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-slide"
-                            style="background-image: url('https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&h=800&fit=crop');">
-                            <div class="carousel-overlay">
-                                <div class="tank-data-days">1 <small>dia restante</small></div>
-                                <div class="tank-data-label">Tanque Secundário · 2 000 L</div>
-                                <div class="tank-data-meta">
-                                    <div class="tank-meta-item">
-                                        <strong>20 %</strong>
-                                        Nível
-                                    </div>
-                                    <div class="tank-meta-item">
-                                        <strong>400 L</strong>
-                                        Volume
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-slide"
-                            style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=800&fit=crop');">
-                            <div class="carousel-overlay">
-                                <div class="tank-data-days">7 <small>dias restantes</small></div>
-                                <div class="tank-data-label">Cisterna Subterrânea · 10 000 L</div>
-                                <div class="tank-data-meta">
-                                    <div class="tank-meta-item">
-                                        <strong>90 %</strong>
-                                        Nível
-                                    </div>
-                                    <div class="tank-meta-item">
-                                        <strong>9 000 L</strong>
-                                        Volume
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-nav">
-                            <button class="carousel-dot active" onclick="goToSlideV2(0)"></button>
-                            <button class="carousel-dot" onclick="goToSlideV2(1)"></button>
-                            <button class="carousel-dot" onclick="goToSlideV2(2)"></button>
-                        </div>
-                    </div>
-
-                    <!-- V3 Carousel -->
-                    <div class="hero-carousel-v3" id="heroCarouselV3">
-                        <div class="carousel-slide-v3 active">
-                            <div class="carousel-image-v3"
-                                style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop');">
-                            </div>
-                            <div class="carousel-content-v3">
-                                <div class="tank-data-days">3 <small>dias restantes</small></div>
-                                <div class="tank-data-label">Reservatório principal · 5 000 L</div>
-                                <div class="tank-data-meta">
-                                    <div class="tank-meta-item">
-                                        <strong>65 %</strong>
-                                        Nível
-                                    </div>
-                                    <div class="tank-meta-item">
-                                        <strong>3 250 L</strong>
-                                        Volume
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-slide-v3">
-                            <div class="carousel-image-v3"
-                                style="background-image: url('https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&h=800&fit=crop');">
-                            </div>
-                            <div class="carousel-content-v3">
-                                <div class="tank-data-days">1 <small>dia restante</small></div>
-                                <div class="tank-data-label">Tanque Secundário · 2 000 L</div>
-                                <div class="tank-data-meta">
-                                    <div class="tank-meta-item">
-                                        <strong>20 %</strong>
-                                        Nível
-                                    </div>
-                                    <div class="tank-meta-item">
-                                        <strong>400 L</strong>
-                                        Volume
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-slide-v3">
-                            <div class="carousel-image-v3"
-                                style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=800&fit=crop');">
-                            </div>
-                            <div class="carousel-content-v3">
-                                <div class="tank-data-days">7 <small>dias restantes</small></div>
-                                <div class="tank-data-label">Cisterna Subterrânea · 10 000 L</div>
-                                <div class="tank-data-meta">
-                                    <div class="tank-meta-item">
-                                        <strong>90 %</strong>
-                                        Nível
-                                    </div>
-                                    <div class="tank-meta-item">
-                                        <strong>9 000 L</strong>
-                                        Volume
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-nav-v3">
-                            <button class="carousel-dot-v3 active" onclick="goToSlideV3(0)"></button>
-                            <button class="carousel-dot-v3" onclick="goToSlideV3(1)"></button>
-                            <button class="carousel-dot-v3" onclick="goToSlideV3(2)"></button>
                         </div>
                     </div>
                 </div>
@@ -3646,45 +3601,6 @@
             });
             document.getElementById('btn-' + themeName).classList.add('active');
         }
-
-        // Carousel V2
-        function goToSlideV2(index) {
-            const slides = document.querySelectorAll('#heroCarouselV2 .carousel-slide');
-            const dots = document.querySelectorAll('#heroCarouselV2 .carousel-dot');
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-
-        // Carousel V3
-        function goToSlideV3(index) {
-            const slides = document.querySelectorAll('#heroCarouselV3 .carousel-slide-v3');
-            const dots = document.querySelectorAll('#heroCarouselV3 .carousel-dot-v3');
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-
-        // Auto-advance carousels
-        setInterval(() => {
-            if (document.body.classList.contains('theme-glass-v2')) {
-                const activeDot = document.querySelector('#heroCarouselV2 .carousel-dot.active');
-                const dots = Array.from(document.querySelectorAll('#heroCarouselV2 .carousel-dot'));
-                const nextIndex = (dots.indexOf(activeDot) + 1) % dots.length;
-                goToSlideV2(nextIndex);
-            } else if (document.body.classList.contains('theme-glass-v3')) {
-                const activeDot = document.querySelector('#heroCarouselV3 .carousel-dot-v3.active');
-                const dots = Array.from(document.querySelectorAll('#heroCarouselV3 .carousel-dot-v3'));
-                const nextIndex = (dots.indexOf(activeDot) + 1) % dots.length;
-                goToSlideV3(nextIndex);
-            }
-        }, 5000);
 
         // Nav scroll effect
         const nav = document.getElementById('nav');
