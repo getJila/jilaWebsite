@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jila — Instagram Post</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        /* ── The Instagram canvas: 1080 × 1080 ── */
+        #post {
+            width: 1080px;
+            height: 1080px;
+            position: relative;
+            overflow: hidden;
+            background: #0B1A2E;
+            /* Sharper text rendering */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Background image */
+        #post .bg-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Gradient overlay for text legibility */
+        #post .overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg,
+                    rgba(11, 26, 46, 0.85) 0%,
+                    rgba(11, 26, 46, 0.60) 25%,
+                    rgba(11, 26, 46, 0.10) 50%,
+                    rgba(11, 26, 46, 0.05) 70%,
+                    rgba(11, 26, 46, 0.40) 100%);
+            z-index: 1;
+        }
+
+        /* Content container */
+        #post .content {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 64px;
+        }
+
+        /* ── Logo: bottom-right corner ── */
+        .logo {
+            position: absolute;
+            bottom: 48px;
+            right: 48px;
+            z-index: 3;
+        }
+
+        .logo img {
+            height: 192px;
+            width: auto;
+        }
+
+        /* ── Text block: top-left with subtle background ── */
+        .bottom-area {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            gap: 24px;
+        }
+
+        .coming-soon-label {
+            display: inline-flex;
+            align-self: flex-start;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(42, 157, 181, 0.20);
+            border: 1.5px solid rgba(42, 157, 181, 0.4);
+            border-radius: 100px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #3CC0D8;
+        }
+
+        .coming-soon-label .dot {
+            width: 8px;
+            height: 8px;
+            background: #3CC0D8;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(0.8);
+            }
+        }
+
+        .headline {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.15;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+            max-width: 700px;
+            text-align: left;
+            text-shadow: 0 2px 12px rgba(11, 26, 46, 0.6), 0 1px 3px rgba(11, 26, 46, 0.4);
+        }
+
+        .headline .accent {
+            color: #2A9DB5;
+        }
+
+        .subheadline {
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 1.55;
+            color: #ffffff;
+            max-width: 600px;
+            text-align: left;
+            text-shadow: 0 1px 8px rgba(11, 26, 46, 0.5);
+        }
+
+        .divider {
+            width: 64px;
+            height: 3px;
+            background: linear-gradient(90deg, rgba(42, 157, 181, 0.2), #2A9DB5, rgba(42, 157, 181, 0.2));
+            border-radius: 2px;
+        }
+
+
+
+
+
+        /* ── Download & variant controls (outside the canvas) ── */
+        .controls {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .variant-toggle {
+            display: flex;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 4px;
+        }
+
+        .variant-toggle button {
+            padding: 10px 24px;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .variant-toggle button.active {
+            background: rgba(42, 157, 181, 0.2);
+            color: #3CC0D8;
+        }
+
+        .variant-toggle button:hover:not(.active) {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .download-section {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .download-btn {
+            padding: 14px 32px;
+            background: #2A9DB5;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #1A6B8A;
+        }
+
+        .hint {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Instagram Post Canvas (1080×1080) -->
+    <div id="post">
+        <img class="bg-image" src="testimage.png" alt="Jila Product">
+        <div class="overlay"></div>
+        <div class="logo">
+            <img src="jila_logo.svg" alt="Jila">
+        </div>
+        <div class="content">
+            <!-- Text overlay -->
+            <div class="bottom-area">
+                <div class="coming-soon-label">
+                    <span class="dot"></span>
+                    Em Breve
+                </div>
+                <h1 class="headline" id="headline">
+                    A nova geração<br>
+                    <span class="accent">Jila está a chegar.</span>
+                </h1>
+                <p class="subheadline" id="subheadline">
+                    Novo dispositivo. Nova aplicação. Uma nova era na gestão inteligente de água. Fique atento.
+                </p>
+                <div class="divider"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+        <div class="variant-toggle">
+            <button class="active" onclick="setVariant(0)">Variante A</button>
+            <button onclick="setVariant(1)">Variante B</button>
+            <button onclick="setVariant(2)">Variante C</button>
+        </div>
+        <div class="download-section">
+            <button class="download-btn" onclick="downloadPost()">⬇ Download como PNG</button>
+            <span class="hint">ou faça screenshot do quadro acima</span>
+        </div>
+    </div>
+
+    <!-- html2canvas for PNG export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        // ── Text variants ──
+        const variants = [
+            {
+                headline: 'A nova geração<br><span class="accent">Jila está a chegar.</span>',
+                sub: 'Novo dispositivo. Nova aplicação. Uma nova era na gestão inteligente de água. Fique atento.',
+                file: 'jila-instagram-nova-geracao.png'
+            },
+            {
+                headline: 'Novo dispositivo.<br><span class="accent">Nova app. Tudo novo.</span>',
+                sub: 'O Jila que conhece está a evoluir. Hardware e software redesenhados de raiz. Anúncio em breve.',
+                file: 'jila-instagram-tudo-novo.png'
+            },
+            {
+                headline: 'Duas novidades.<br><span class="accent">Uma missão.</span>',
+                sub: 'Um dispositivo mais inteligente e uma app completamente nova. Para que nunca lhe falte água. Em breve.',
+                file: 'jila-instagram-duas-novidades.png'
+            }
+        ];
+
+        let currentVariant = 0;
+
+        function setVariant(idx) {
+            currentVariant = idx;
+            document.getElementById('headline').innerHTML = variants[idx].headline;
+            document.getElementById('subheadline').textContent = variants[idx].sub;
+            document.querySelectorAll('.variant-toggle button').forEach((btn, i) => {
+                btn.classList.toggle('active', i === idx);
+            });
+        }
+
+        // Convert the image to a data URL on load so html2canvas can export without taint issues
+        window.addEventListener('DOMContentLoaded', () => {
+            const img = document.querySelector('.bg-image');
+            const original = img.src;
+            const cvs = document.createElement('canvas');
+            const tmp = new Image();
+            tmp.crossOrigin = 'anonymous';
+            tmp.onload = () => {
+                cvs.width = tmp.naturalWidth;
+                cvs.height = tmp.naturalHeight;
+                cvs.getContext('2d').drawImage(tmp, 0, 0);
+                try {
+                    img.src = cvs.toDataURL('image/png');
+                } catch (e) {
+                    // If tainted (file://), fall back to fetch approach
+                    fetch(original)
+                        .then(r => r.blob())
+                        .then(blob => {
+                            const reader = new FileReader();
+                            reader.onloadend = () => { img.src = reader.result; };
+                            reader.readAsDataURL(blob);
+                        })
+                        .catch(() => { }); // keep original src as last resort
+                }
+            };
+            tmp.onerror = () => {
+                fetch(original)
+                    .then(r => r.blob())
+                    .then(blob => {
+                        const reader = new FileReader();
+                        reader.onloadend = () => { img.src = reader.result; };
+                        reader.readAsDataURL(blob);
+                    })
+                    .catch(() => { });
+            };
+            tmp.src = original;
+        });
+
+        function downloadPost() {
+            const btn = document.querySelector('.download-btn');
+            btn.textContent = '⏳ A gerar…';
+            btn.disabled = true;
+
+            const post = document.getElementById('post');
+            html2canvas(post, {
+                scale: 2,           // capture at 2x (2160×2160) for crisp text
+                useCORS: true,
+                allowTaint: false,
+                width: 1080,
+                height: 1080,
+                backgroundColor: '#0B1A2E',
+                imageTimeout: 0,
+                logging: false
+            }).then(hiResCanvas => {
+                // Downscale to exactly 1080×1080 — Instagram's optimal resolution
+                // This produces sharper text than capturing at 1x directly
+                const final = document.createElement('canvas');
+                final.width = 1080;
+                final.height = 1080;
+                const ctx = final.getContext('2d');
+                ctx.imageSmoothingEnabled = true;
+                ctx.imageSmoothingQuality = 'high';
+                ctx.drawImage(hiResCanvas, 0, 0, 1080, 1080);
+
+                const link = document.createElement('a');
+                link.download = variants[currentVariant].file;
+                link.href = final.toDataURL('image/png', 1.0);
+                link.click();
+            }).catch(err => {
+                console.error('Export failed:', err);
+                alert('Falha ao exportar. Tente fazer screenshot em vez disso.');
+            }).finally(() => {
+                btn.textContent = '⬇ Download como PNG';
+                btn.disabled = false;
+            });
+        }
+    </script>
+</body>
+
+</html>

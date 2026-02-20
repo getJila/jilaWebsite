@@ -653,78 +653,6 @@
         }
 
         /* ============================================
-   SECTION: THREE PILLARS (Hope)
-   ============================================ */
-
-        .section-pillars {
-            background: var(--white);
-        }
-
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-            counter-reset: pillar;
-        }
-
-        @media (max-width: 768px) {
-            .pillars-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .pillar-card {
-            padding: var(--space-2xl) var(--space-xl);
-            border: 1px solid var(--grey-100);
-            border-radius: 14px;
-            position: relative;
-            counter-increment: pillar;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .pillar-card:hover {
-            border-color: rgba(42, 157, 181, 0.3);
-            box-shadow: 0 8px 24px rgba(42, 157, 181, 0.06);
-        }
-
-        .pillar-number {
-            font-family: var(--font-mono);
-            font-size: 0.6875rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--teal-primary);
-            margin-bottom: var(--space-md);
-            font-weight: 500;
-        }
-
-        .pillar-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--teal-ghost);
-            border: 1px solid rgba(42, 157, 181, 0.12);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: var(--space-lg);
-        }
-
-        .pillar-icon svg {
-            width: 28px;
-            height: 28px;
-            color: var(--teal-primary);
-        }
-
-        .pillar-card h3 {
-            margin-bottom: var(--space-sm);
-        }
-
-        .pillar-card p {
-            color: var(--grey-600);
-            font-size: 0.9375rem;
-        }
-
-        /* ============================================
    SECTION: HOW IT WORKS (Clarity)
    ============================================ */
 
@@ -954,96 +882,6 @@
             text-align: center;
             justify-content: center;
             width: 100%;
-        }
-
-        /* ============================================
-   SECTION: TRUST PRINCIPLES (Safety)
-   ============================================ */
-
-        .section-trust {
-            background: var(--grey-50);
-            border-top: 1px solid var(--grey-100);
-            border-bottom: 1px solid var(--grey-100);
-        }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-lg);
-        }
-
-        @media (max-width: 768px) {
-            .trust-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .trust-item {
-            display: flex;
-            gap: var(--space-md);
-            padding: var(--space-xl);
-            background: var(--white);
-            border: 1px solid var(--grey-100);
-            border-radius: 12px;
-        }
-
-        .trust-item-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--teal-ghost);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .trust-item-icon svg {
-            width: 20px;
-            height: 20px;
-            color: var(--teal-primary);
-        }
-
-        .trust-item h4 {
-            margin-bottom: 4px;
-            color: var(--midnight);
-        }
-
-        .trust-item p {
-            color: var(--grey-600);
-            font-size: 0.875rem;
-        }
-
-        .trust-wont-do {
-            margin-top: var(--space-2xl);
-            padding: var(--space-xl);
-            background: var(--white);
-            border: 1px solid var(--grey-100);
-            border-radius: 12px;
-        }
-
-        .trust-wont-do h4 {
-            margin-bottom: var(--space-md);
-            color: var(--grey-400);
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-
-        .trust-wont-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-sm);
-        }
-
-        .trust-wont-tag {
-            padding: 6px 14px;
-            background: var(--grey-50);
-            border: 1px solid var(--grey-100);
-            border-radius: 100px;
-            font-size: 0.8125rem;
-            color: var(--grey-600);
         }
 
         /* ============================================
@@ -1898,19 +1736,9 @@
             color: var(--teal-light);
         }
 
-        .pillar-icon .material-symbols-outlined {
-            font-size: 28px;
-            color: var(--teal-primary);
-        }
-
         .step-icon .material-symbols-outlined {
             font-size: 24px;
             color: var(--teal-light);
-        }
-
-        .trust-item-icon .material-symbols-outlined {
-            font-size: 20px;
-            color: var(--teal-primary);
         }
 
         .pricing-features li .material-symbols-outlined {
@@ -2370,52 +2198,6 @@
     </section>
 
     <!-- ============================================
-     THREE PILLARS
-     ============================================ -->
-    <section class="section-pillars" id="pilares">
-        <div class="container">
-            <div class="section-header fade-up">
-                <div class="section-label">
-                    <span class="label">O que o Jila faz</span>
-                </div>
-                <h2>Monitorizar. Conectar. Provar.</h2>
-                <p>Três pilares para transformar o abastecimento intermitente em informação útil, conexões fiáveis e
-                    evidências concretas.</p>
-            </div>
-
-            <div class="pillars-grid stagger">
-                <div class="pillar-card">
-                    <div class="pillar-number">Acto 01</div>
-                    <div class="pillar-icon">
-                        <span class="material-symbols-outlined">monitoring</span>
-                    </div>
-                    <h3>Monitorizar</h3>
-                    <p>Veja o nível real e os dias de autonomia restantes. Receba alertas antes de ficar a zero.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-number">Acto 02</div>
-                    <div class="pillar-icon">
-                        <span class="material-symbols-outlined">group_add</span>
-                    </div>
-                    <h3>Conectar</h3>
-                    <p>Localize girafas e chafarizes próximos e encontre vendedores de confiança. Já temos 600+ locais
-                        verificados em Luanda e estamos a crescer semana após semana.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-number">Acto 03</div>
-                    <div class="pillar-icon">
-                        <span class="material-symbols-outlined">receipt_long</span>
-                    </div>
-                    <h3>Controlar</h3>
-                    <p>Histórico detalhado de consumos e gastos. Saiba exatamente para onde vai a sua água.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
      HOW IT WORKS
      ============================================ -->
     <section class="section-how" id="como-funciona">
@@ -2538,205 +2320,6 @@
                             operador</li>
                     </ul>
                     <a href="#demo" class="btn-primary">Pedir demonstração</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-     TRUST PRINCIPLES
-     ============================================ -->
-    <section class="section-trust" id="confianca">
-        <div class="container">
-            <div class="section-header fade-up">
-                <div class="section-label">
-                    <span class="label">Princípios de confiança</span>
-                </div>
-                <h2>Honestidade radical.</h2>
-                <p>Num mercado onde as pessoas já foram desiludidas por promessas vagas, o Jila lidera pela
-                    transparência.</p>
-            </div>
-
-            <div class="trust-grid stagger">
-                <div class="trust-item">
-                    <div class="trust-item-icon">
-                        <span class="material-symbols-outlined">schedule</span>
-                    </div>
-                    <div>
-                        <h4>Mostramos quando os dados são antigos.</h4>
-                        <p>Cada leitura tem um timestamp de "última atualização." Se os dados são velhos, a interface
-                            diz-lo — visualmente e em texto.</p>
-                    </div>
-                </div>
-
-                <div class="trust-item">
-                    <div class="trust-item-icon">
-                        <span class="material-symbols-outlined">layers</span>
-                    </div>
-                    <div>
-                        <h4>Distinguimos manual de sensor.</h4>
-                        <p>Uma leitura manual e uma de sensor ultrassónico têm níveis de confiança diferentes. A
-                            interface torna isso claro.</p>
-                    </div>
-                </div>
-
-                <div class="trust-item">
-                    <div class="trust-item-icon">
-                        <span class="material-symbols-outlined">info</span>
-                    </div>
-                    <div>
-                        <h4>Dizemos "não sabemos" quando não sabemos.</h4>
-                        <p>Se a estimativa tem confiança baixa, mostramos um intervalo (~1–2 dias) em vez de um valor
-                            falso. Nunca fabricamos certeza.</p>
-                    </div>
-                </div>
-
-                <div class="trust-item">
-                    <div class="trust-item-icon">
-                        <span class="material-symbols-outlined">lock</span>
-                    </div>
-                    <div>
-                        <h4>Privacidade por defeito.</h4>
-                        <p>Os seus dados são seus. Ações claras, estados claros. Sem partilha sem consentimento.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="trust-wont-do fade-up">
-                <h4>O que nunca fazemos</h4>
-                <div class="trust-wont-list">
-                    <span class="trust-wont-tag">Sem urgência falsa</span>
-                    <span class="trust-wont-tag">Sem custos escondidos</span>
-                    <span class="trust-wont-tag">Sem contagens regressivas</span>
-                    <span class="trust-wont-tag">Sem "só restam 2 vendedores!"</span>
-                    <span class="trust-wont-tag">Sem dark patterns</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-     CASE STUDIES
-     ============================================ -->
-    <section class="section-cases" id="casos">
-        <div class="container">
-            <div class="section-header fade-up">
-                <div class="section-label">
-                    <span class="label" style="color: var(--teal-light); border-color: rgba(42,157,181,0.3);">Casos de
-                        uso</span>
-                </div>
-                <h2>Resultados reais, clientes reais.</h2>
-                <p>Diferentes contextos, o mesmo impacto: nunca mais ficar sem água de surpresa.</p>
-            </div>
-
-            <div class="cases-carousel fade-up">
-                <div class="cases-grid" id="casesGrid">
-                    <div class="case-card">
-                        <img class="case-card-img"
-                            src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop"
-                            alt="Reservatórios residenciais" loading="lazy">
-                        <div class="case-card-overlay"></div>
-                        <div class="case-card-content">
-                            <span class="case-tag case-tag--residential">
-                                <span class="material-symbols-outlined">home</span>
-                                Residencial · Camama, Angola
-                            </span>
-                            <h3>Redução drástica de dias sem água</h3>
-                            <p>Um cliente residencial com polytanks viu uma redução significativa nas vezes em que ficou
-                                sem água — graças aos alertas antecipados do Jila.</p>
-                        </div>
-                    </div>
-
-                    <div class="case-card">
-                        <img class="case-card-img"
-                            src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&h=800&fit=crop"
-                            alt="Instalação industrial" loading="lazy">
-                        <div class="case-card-overlay"></div>
-                        <div class="case-card-content">
-                            <span class="case-tag case-tag--industrial">
-                                <span class="material-symbols-outlined">factory</span>
-                                Industrial · Zango, Angola
-                            </span>
-                            <h3>Planeamento inteligente de cisternas</h3>
-                            <p>Uma destilaria numa zona com fornecimento irregular usa o Jila para planear encomendas de
-                                água a tempo — incluindo avisos antes de ficar em risco.</p>
-                        </div>
-                    </div>
-
-                    <div class="case-card">
-                        <img class="case-card-img"
-                            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=800&fit=crop"
-                            alt="Casa de hóspedes" loading="lazy">
-                        <div class="case-card-overlay"></div>
-                        <div class="case-card-content">
-                            <span class="case-tag case-tag--hospitality">
-                                <span class="material-symbols-outlined">hotel</span>
-                                Hotelaria · Luena, Angola
-                            </span>
-                            <h3>Hóspedes surpreendidos com água sempre disponível</h3>
-                            <p>Uma casa de hóspedes no Luena deixou de ter falhas de água. Os clientes mais regulares
-                                notaram a diferença — e ficaram impressionados.</p>
-                        </div>
-                    </div>
-
-                    <div class="case-card">
-                        <img class="case-card-img"
-                            src="https://images.unsplash.com/photo-1504297050568-910d24c426d3?w=600&h=800&fit=crop"
-                            alt="Reservatórios de distribuição" loading="lazy">
-                        <div class="case-card-overlay"></div>
-                        <div class="case-card-content">
-                            <span class="case-tag case-tag--utility">
-                                <span class="material-symbols-outlined">water_drop</span>
-                                Utilidade · Nairobi, Quénia
-                            </span>
-                            <h3>Monitorização proactiva de reservatórios de distribuição</h3>
-                            <p>Uma empresa de água no Quénia passou de reactiva a proactiva — reabastecendo tanques
-                                elevados a tempo, sem inspeções nocturnas perigosas, e eliminando queixas de clientes.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="case-card">
-                        <img class="case-card-img"
-                            src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=600&h=800&fit=crop"
-                            alt="Frota de cisternas" loading="lazy">
-                        <div class="case-card-overlay"></div>
-                        <div class="case-card-content">
-                            <span class="case-tag case-tag--fleet">
-                                <span class="material-symbols-outlined">local_shipping</span>
-                                Frota · Luanda, Angola
-                            </span>
-                            <h3>Rotas optimizadas com dados de procura</h3>
-                            <p>Um dono de cisterna em Luanda visualiza rotas e zonas de maior procura no painel Jila —
-                                posicionando o veículo mais perto dos clientes e reduzindo tempo entre entregas.</p>
-                        </div>
-                    </div>
-
-                    <div class="case-card">
-                        <img class="case-card-img"
-                            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=800&fit=crop"
-                            alt="Comunidade e pontos de água" loading="lazy">
-                        <div class="case-card-overlay"></div>
-                        <div class="case-card-content">
-                            <span class="case-tag case-tag--community">
-                                <span class="material-symbols-outlined">groups</span>
-                                Comunidade · Luanda, Angola
-                            </span>
-                            <h3>600+ pontos de água mapeados e abertos a todos</h3>
-                            <p>O maior directório de pontos de água em Luanda — gratuito, com horários, disponibilidade
-                                em tempo real e distâncias. Para cidadãos, ONGs e decisores que precisam de dados
-                                fiáveis.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cases-nav">
-                    <button class="cases-nav-btn" id="casesPrev" aria-label="Anterior">
-                        <span class="material-symbols-outlined">chevron_left</span>
-                    </button>
-                    <div class="cases-dots" id="casesDots"></div>
-                    <button class="cases-nav-btn" id="casesNext" aria-label="Seguinte">
-                        <span class="material-symbols-outlined">chevron_right</span>
-                    </button>
                 </div>
             </div>
         </div>
@@ -2932,6 +2515,133 @@
                     <div style="margin-top: var(--space-lg);">
                         <a href="#contacto" class="btn-primary">Reservar dispositivo</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+     CASE STUDIES
+     ============================================ -->
+    <section class="section-cases" id="casos">
+        <div class="container">
+            <div class="section-header fade-up">
+                <div class="section-label">
+                    <span class="label" style="color: var(--teal-light); border-color: rgba(42,157,181,0.3);">Casos de
+                        uso</span>
+                </div>
+                <h2>Resultados reais, clientes reais.</h2>
+                <p>Diferentes contextos, o mesmo impacto: nunca mais ficar sem água de surpresa.</p>
+            </div>
+
+            <div class="cases-carousel fade-up">
+                <div class="cases-grid" id="casesGrid">
+                    <div class="case-card">
+                        <img class="case-card-img"
+                            src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop"
+                            alt="Reservatórios residenciais" loading="lazy">
+                        <div class="case-card-overlay"></div>
+                        <div class="case-card-content">
+                            <span class="case-tag case-tag--residential">
+                                <span class="material-symbols-outlined">home</span>
+                                Residencial · Camama, Angola
+                            </span>
+                            <h3>Redução drástica de dias sem água</h3>
+                            <p>Um cliente residencial com polytanks viu uma redução significativa nas vezes em que ficou
+                                sem água — graças aos alertas antecipados do Jila.</p>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <img class="case-card-img"
+                            src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&h=800&fit=crop"
+                            alt="Instalação industrial" loading="lazy">
+                        <div class="case-card-overlay"></div>
+                        <div class="case-card-content">
+                            <span class="case-tag case-tag--industrial">
+                                <span class="material-symbols-outlined">factory</span>
+                                Industrial · Zango, Angola
+                            </span>
+                            <h3>Planeamento inteligente de cisternas</h3>
+                            <p>Uma destilaria numa zona com fornecimento irregular usa o Jila para planear encomendas de
+                                água a tempo — incluindo avisos antes de ficar em risco.</p>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <img class="case-card-img"
+                            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=800&fit=crop"
+                            alt="Casa de hóspedes" loading="lazy">
+                        <div class="case-card-overlay"></div>
+                        <div class="case-card-content">
+                            <span class="case-tag case-tag--hospitality">
+                                <span class="material-symbols-outlined">hotel</span>
+                                Hotelaria · Luena, Angola
+                            </span>
+                            <h3>Hóspedes surpreendidos com água sempre disponível</h3>
+                            <p>Uma casa de hóspedes no Luena deixou de ter falhas de água. Os clientes mais regulares
+                                notaram a diferença — e ficaram impressionados.</p>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <img class="case-card-img"
+                            src="https://images.unsplash.com/photo-1504297050568-910d24c426d3?w=600&h=800&fit=crop"
+                            alt="Reservatórios de distribuição" loading="lazy">
+                        <div class="case-card-overlay"></div>
+                        <div class="case-card-content">
+                            <span class="case-tag case-tag--utility">
+                                <span class="material-symbols-outlined">water_drop</span>
+                                Utilidade · Nairobi, Quénia
+                            </span>
+                            <h3>Monitorização proactiva de reservatórios de distribuição</h3>
+                            <p>Uma empresa de água no Quénia passou de reactiva a proactiva — reabastecendo tanques
+                                elevados a tempo, sem inspeções nocturnas perigosas, e eliminando queixas de clientes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <img class="case-card-img"
+                            src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=600&h=800&fit=crop"
+                            alt="Frota de cisternas" loading="lazy">
+                        <div class="case-card-overlay"></div>
+                        <div class="case-card-content">
+                            <span class="case-tag case-tag--fleet">
+                                <span class="material-symbols-outlined">local_shipping</span>
+                                Frota · Luanda, Angola
+                            </span>
+                            <h3>Rotas optimizadas com dados de procura</h3>
+                            <p>Um dono de cisterna em Luanda visualiza rotas e zonas de maior procura no painel Jila —
+                                posicionando o veículo mais perto dos clientes e reduzindo tempo entre entregas.</p>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <img class="case-card-img"
+                            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=800&fit=crop"
+                            alt="Comunidade e pontos de água" loading="lazy">
+                        <div class="case-card-overlay"></div>
+                        <div class="case-card-content">
+                            <span class="case-tag case-tag--community">
+                                <span class="material-symbols-outlined">groups</span>
+                                Comunidade · Luanda, Angola
+                            </span>
+                            <h3>600+ pontos de água mapeados e abertos a todos</h3>
+                            <p>O maior directório de pontos de água em Luanda — gratuito, com horários, disponibilidade
+                                em tempo real e distâncias. Para cidadãos, ONGs e decisores que precisam de dados
+                                fiáveis.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cases-nav">
+                    <button class="cases-nav-btn" id="casesPrev" aria-label="Anterior">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <div class="cases-dots" id="casesDots"></div>
+                    <button class="cases-nav-btn" id="casesNext" aria-label="Seguinte">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
                 </div>
             </div>
         </div>
